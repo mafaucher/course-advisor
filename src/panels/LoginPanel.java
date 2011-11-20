@@ -1,6 +1,5 @@
 package panels;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -51,10 +50,6 @@ public class LoginPanel extends ViewPanel
 				    		  .addComponent(exitButton)
 				    		  .addComponent(loginButton))				      
 				);
-		//add(nameField, BorderLayout.NORTH);
-		//add(passwordField, BorderLayout.CENTER);
-		//addButton("Login", al, BorderLayout.CENTER);
-		//addButton("Exit", null, BorderLayout.CENTER);
 	}
 	
 }
