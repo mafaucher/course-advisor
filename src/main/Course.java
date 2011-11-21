@@ -21,20 +21,30 @@ public class Course
 	//this is info pertaining to the student's relationship to the course
 	//this should prolly be later consolidated in another class
 	private List<String> keywords;
-	private boolean bTaken;
 	private float grade;
-	
+	public Course(String name, String number, float numCredits)
+	{
+		grade=-1.0f;
+		this.name=new String(name);
+		this.number=new String(number);
+		this.numCredits=numCredits;
+		prereqs=new ArrayList<Course>();
+	}
 	public String getName()
 	{
-		return new String(name);
+		return new String(name+" "+number);
 	}
 	public float getCredits()
 	{
 		return numCredits;
 	}
+	public void setGrade(float grade)
+	{
+		this.grade=grade;
+	}
 	public boolean wasTaken()
 	{
-		return bTaken;
+		return grade>=0.0;
 	}
 	public float getGrade()
 	{
@@ -97,8 +107,8 @@ public class Course
 
     // Just a quick driver to test io
     public static void main(String[] args) {
-        List<Course> pr = new ArrayList<Course>();
-        List<String> kw = Arrays.asList("This", "is", "a", "test");
+    	List<Course> pr = new ArrayList<Course>();
+    	List<String> kw = Arrays.asList("This", "is", "a", "test");
         Course c1 = new Course("COMP 474", "Intelligent Systems", 3, Group.COMP_ELEC, pr, kw);
         List<Course> courseList = new ArrayList<Course>();
         courseList.add(c1);

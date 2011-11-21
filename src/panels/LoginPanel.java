@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import main.MainFrame;
+
 public class LoginPanel extends ViewPanel 
 {
 
@@ -20,6 +22,7 @@ public class LoginPanel extends ViewPanel
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
+				MainFrame.getFrame().setPanel(new RecordPanel());
 			}
 			
 		};

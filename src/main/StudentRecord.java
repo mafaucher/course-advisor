@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentRecord 
 {
@@ -13,13 +14,15 @@ public class StudentRecord
 	private long id;
     private Option option;
 	private float gpa, lastAnnualGpa;
-	private ArrayList<Course> courses, coursesTaken;
+	private List<Course> courses, coursesTaken;
 	public StudentRecord(String name, long id, float gpa, float lastAnnualGpa)
 	{
 		this.name=new String(name);
 		this.id=id;
 		this.gpa=gpa;
 		this.lastAnnualGpa=lastAnnualGpa;
+		courses=new ArrayList<Course>();
+		coursesTaken=new ArrayList<Course>();
 	}
 	public String getName()
 	{
@@ -41,16 +44,17 @@ public class StudentRecord
 	{
 		courses.add(course);
 	}
-	public void addCourseTaken(Course course)
+	public void addCourseTaken(Course course, float grade)
 	{
 		coursesTaken.add(course);
+		course.setGrade(grade);
 	}
-	public Course[] getCourses()
+	public List<Course> getCourses()
 	{
-		return (Course[])courses.toArray();
+		return new ArrayList<Course>(courses);
 	}
-	public Course[] getCoursesTaken()
+	public List<Course> getCoursesTaken()
 	{
-		return (Course[])coursesTaken.toArray();
+		return new ArrayList<Course>(coursesTaken);
 	}
 }

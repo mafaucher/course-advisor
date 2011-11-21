@@ -36,4 +36,13 @@ public class ViewPanel extends JPanel
 		else button.addActionListener(al);		
 		return button;
 	}
+	protected String getHead()
+	{
+		return new String("<html><body>");
+	}
+	protected void setTail(String str)
+	{
+		str=str.trim();
+		str+="</html></body>";
+	}
 }
