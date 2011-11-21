@@ -18,8 +18,32 @@ public class Course
 	private float numCredits;
     private Group group;
 	private List<Course> prereqs;
-    private List<String> keywords;
-	//this is info pertaining to the student's relationaship to the course
+	//this is info pertaining to the student's relationship to the course
+	//this should prolly be later consolidated in another class
+	private List<String> keywords;
+	private boolean bTaken;
+	private float grade;
+	
+	public String getName()
+	{
+		return new String(name);
+	}
+	public float getCredits()
+	{
+		return numCredits;
+	}
+	public boolean wasTaken()
+	{
+		return bTaken;
+	}
+	public float getGrade()
+	{
+		return grade;
+	}
+	public void addPrereq(Course course)
+	{
+		prereqs.add(course);
+	}
 	//this should prolly be later consolidated in another class -> In student record
 	//private boolean wasTaken;
 	//private float grade;
