@@ -7,7 +7,7 @@ public class StudentRecord
 {
     public enum Option
     {
-        GAME, WEB, CSYS, SSYS, ISYS, MINOR, NONE
+        GAME, WEB, CSYS, SSYS, ISYS, ART, STAT, MINOR, NONE
     }
 
 	private String name;
