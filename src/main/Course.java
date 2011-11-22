@@ -18,10 +18,14 @@ public class Course
 	private float numCredits;
     private Group group;
 	private List<Course> prereqs;
+    private boolean[] semesters; // 0=Summer; 1=Fall; 2=Fall/Winter; 3=Winter
+	private List<String> keywords;
 	//this is info pertaining to the student's relationship to the course
 	//this should prolly be later consolidated in another class
-	private List<String> keywords;
 	private float grade;
+
+    // Constructors
+
 	public Course(String name, String number, float numCredits)
 	{
 		grade=-1.0f;
@@ -29,47 +33,100 @@ public class Course
 		this.number=new String(number);
 		this.numCredits=numCredits;
 		prereqs=new ArrayList<Course>();
+        semesters = new boolean[4];
 	}
-	public String getName()
-	{
-		return new String(name+" "+number);
-	}
-	public float getCredits()
-	{
-		return numCredits;
-	}
+    
+    public Course(String name, String number, float numCredits, Group group,
+                  boolean[] semesters, List<String> keywords)
+    {
+        this.name = new String(name);
+        this.number = new String(number);
+        this.numCredits = numCredits;
+        this.group = group;
+        this.setSemesters(semesters);
+        this.keywords = new ArrayList<String>(keywords);
+        this.prereqs = new ArrayList<Course>();
+        this.grade = -1.0f;
+    }
+
+    public Course(Course course)
+    {
+        this.name = course.getName();
+        this.number = course.getNumber();
+        this.numCredits = course.getCredits();
+        this.group = course.getGroup();
+        this.setSemesters(course.getSemesters());
+        this.keywords = course.getKeywords();
+        this.prereqs = course.getPrereqs();
+        this.grade = course.getGrade();
+    }
+    
+    // Setters
+
 	public void setGrade(float grade)
 	{
 		this.grade=grade;
 	}
-	public boolean wasTaken()
+    public void setSemesters(boolean[] semesters)
+    {
+        this.semesters = new boolean[4];
+        for (int i = 0; i < semesters.length && i < 4; i++)
+        {
+            this.semesters[i] = semesters[i];
+        }
+    }
+
+    // Getters
+    
+	public String getName()
 	{
-		return grade>=0.0;
+		return new String(name);
 	}
+    public String getNumber()
+    {
+        return new String(number);
+    }
+	public float getCredits()
+	{
+		return numCredits;
+	}
+    public Group getGroup()
+    {
+        return group;
+    }
+    public boolean[] getSemesters()
+    {
+        semesters = new boolean[4];
+        for (int i = 0; i < semesters.length; i++)
+        {
+            semesters[i] = this.semesters[i];
+        }
+        return semesters;
+    }
+    public List<String> getKeywords()
+    {
+        return new ArrayList<String>(keywords);
+    }
+    public List<Course> getPrereqs()
+    {
+        return new ArrayList<Course>(prereqs);
+    }
 	public float getGrade()
 	{
 		return grade;
+	}
+
+	public boolean wasTaken()
+	{
+		return grade>=0.0;
 	}
 	public void addPrereq(Course course)
 	{
 		prereqs.add(course);
 	}
-	//this should prolly be later consolidated in another class -> In student record
-	//private boolean wasTaken;
-	//private float grade;
-    
-    public Course(String nb, String nm, float cr, Group gr, List<Course> pr, List<String> kw)
-    {
-        number = nb;
-        name = nm;
-        numCredits = cr;
-        group = gr;
-        prereqs = pr;
-        keywords = kw;
-    }
     
     /**
-     * TODO: (Marc) Finish deciding Class attributes before implementing this method.
+     * TODO: Missing group, semesters, keywords, and prereqs.
      * Source: http://stackoverflow.com/questions/3666007/how-to-serialize-object-to-csv-file
      */
     private static final String CSV_SEPARATOR = ",";
@@ -90,10 +147,13 @@ public class Course
                 sb.append(CSV_SEPARATOR);
                 sb.append(course.isVatApplicable() ? "Yes" : "No");
                 */
-                sb.append(course.number.trim().length() == 0? "" : course.number);
+
+                sb.append(course.getName().trim().length() == 0? "" : course.getName());
                 sb.append(CSV_SEPARATOR);
-                sb.append(course.name.trim().length() == 0? "" : course.name);
+                sb.append(course.getNumber().trim().length() == 0? "" : course.getNumber());
                 sb.append(CSV_SEPARATOR);
+                sb.append(course.getCredits());
+                
                 bw.write(sb.toString());
                 bw.newLine();
             }
@@ -101,18 +161,53 @@ public class Course
             bw.close();
         }
         catch (UnsupportedEncodingException e) {}
-        catch (FileNotFoundException e){}
+        catch (FileNotFoundException e) {}
         catch (IOException e){}
+    }
+
+    /**
+     * TODO: ArrayList is filled with null pointers, did I mess up something with the scope?
+     */
+    private static List<Course> readFromCSV()
+    {
+        try
+        {
+            String line = null;
+            ArrayList<Course> courses = new ArrayList<Course>();
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("courselist.csv"), "UTF-8"));
+            while( (line = br.readLine()) != null )
+            {
+                System.out.println(2);
+                String[] result = line.split(CSV_SEPARATOR);
+                System.out.println(result[0]);
+                System.out.println(result[1]);
+                System.out.println(result[2]);
+
+                Course course = new Course(result[0], result[1], new Float(result[2]).floatValue());
+                courses.add(course);
+            }
+            br.close();
+            return courses;
+        }
+        catch (UnsupportedEncodingException e) {}
+        catch (FileNotFoundException e) {}
+        catch (IOException e) {}
+        finally
+        {
+            return null;
+        }
     }
 
     // Just a quick driver to test io
     public static void main(String[] args) {
-    	List<Course> pr = new ArrayList<Course>();
-    	List<String> kw = Arrays.asList("This", "is", "a", "test");
-        Course c1 = new Course("COMP 474", "Intelligent Systems", 3, Group.COMP_ELEC, pr, kw);
+        Course c1 = new Course("Intelligent Systems", "COMP 474", 3);
+        Course c2 = new Course("Pattern Recognition", "COMP 473", 3);
         List<Course> courseList = new ArrayList<Course>();
         courseList.add(c1);
+        courseList.add(c2);
         Course.writeToCSV(courseList);
         System.out.println("Done");
+        List<Course> newList = Course.readFromCSV();
+        System.out.println(newList.get(0).getNumber());
     }
 }
