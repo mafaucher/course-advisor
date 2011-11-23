@@ -7,23 +7,36 @@ public class MainModel
 {
 	private StudentRecord record;
 	private Hashtable<String, Course> courses;
-	
+	private ArrayList<String> errorMsgs;
 	public MainModel()
 	{
+		errorMsgs=new ArrayList<String>();
 		courses=new Hashtable<String, Course>();
 		loadTestData();
 	}
 	private void loadTestData()
 	{
 		record=new StudentRecord("Ratslayer", 9591222, 8.9f, 9.001f);
-		addCourse(new Course("COMP", "474", 4.0f));
+		/*addCourse(new Course("COMP", "474", 4.0f));
 		addCourse(new Course("COMP", "373", 3.0f));
 		addCourse(new Course("COMP", "576", 5.0f));
 		addCourse(new Course("COMP", "273", 1.0f));
 		record.addCourseTaken(getCourse("COMP 474"), 4.3f);
 		record.addCourseTaken(getCourse("COMP 373"), 3.0f);
 		record.addCourseTaken(getCourse("COMP 576"), 3.7f);
-		record.addCourse(getCourse("COMP 273"));
+		record.addCourse(getCourse("COMP 273"));*/
+	}
+	public void addError(String err)
+	{
+		errorMsgs.add(new String(err));
+	}
+	public ArrayList<String> getErrors()
+	{
+		return errorMsgs;
+	}
+	public void clearErrors()
+	{
+		errorMsgs.clear();
 	}
 	public void addCourse(Course course)
 	{

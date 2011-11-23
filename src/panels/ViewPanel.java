@@ -2,11 +2,14 @@ package panels;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class ViewPanel extends JPanel
+import main.Controller;
+
+public abstract class ViewPanel extends JPanel
 {
 
 	/**
@@ -45,4 +48,18 @@ public class ViewPanel extends JPanel
 		str=str.trim();
 		str+="</html></body>";
 	}
+	protected DetailPanel createDetailPanel(String text)
+	{
+		
+		ArrayList<String> errors=Controller.getErrors();
+		if(errors.size()>0)
+		{
+			text+="<br>";
+			text+="Errors:<br>";
+			for(String err : errors)
+				text+=err+"<br>";
+		}
+		return new DetailPanel(text);
+	}
+	public abstract DetailPanel getDetailPanel();
 }

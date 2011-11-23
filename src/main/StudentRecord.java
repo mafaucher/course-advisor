@@ -15,6 +15,8 @@ public class StudentRecord
     private Option option;
 	private float gpa, lastAnnualGpa;
 	private List<Course> courses, coursesTaken;
+	//dynamic data pertinent to the program's functionality
+	private float suggestedCredits;
 	public StudentRecord(String name, long id, float gpa, float lastAnnualGpa)
 	{
 		this.name=new String(name);
@@ -23,6 +25,14 @@ public class StudentRecord
 		this.lastAnnualGpa=lastAnnualGpa;
 		courses=new ArrayList<Course>();
 		coursesTaken=new ArrayList<Course>();
+	}
+	public void setSuggestedCredits(float credits)
+	{
+		suggestedCredits=credits;
+	}
+	public float getSuggestedCredits()
+	{
+		return suggestedCredits;
 	}
 	public String getName()
 	{
@@ -39,6 +49,10 @@ public class StudentRecord
 	public float lastAnnualGpa()
 	{
 		return lastAnnualGpa;
+	}
+	public Option getOption()
+	{
+		return option;
 	}
 	public void addCourse(Course course)
 	{

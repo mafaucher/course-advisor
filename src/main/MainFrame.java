@@ -33,8 +33,10 @@ public class MainFrame extends JFrame
 	{
 		Container content=getContentPane();
 		content.removeAll();
-		content.add(panel, BorderLayout.CENTER);
+		content.add(panel);
+		content.add(panel.getDetailPanel());
 		content.validate();
+		this.repaint();
 	}
 	public static MainFrame getFrame()
 	{
