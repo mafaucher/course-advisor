@@ -54,5 +54,11 @@ public class LoginPanel extends ViewPanel
 				    		  .addComponent(loginButton))				      
 				);
 	}
+	@Override
+	public DetailPanel getDetailPanel() 
+	{
+		String text="Please input your username and your password to access your record.";
+		return createDetailPanel(text);
+	}
 	
 }

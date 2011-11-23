@@ -23,7 +23,7 @@ public class Course
 	//this is info pertaining to the student's relationship to the course
 	//this should prolly be later consolidated in another class
 	private float grade;
-
+	public float value=1;
     // Constructors
 
 	public Course(String name, String number, float numCredits)
@@ -208,6 +208,6 @@ public class Course
         Course.writeToCSV(courseList);
         System.out.println("Done");
         List<Course> newList = Course.readFromCSV();
-        System.out.println(newList.get(0).getNumber());
+        //System.out.println(newList.get(0).getNumber());
     }
 }

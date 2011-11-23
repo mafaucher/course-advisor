@@ -1,5 +1,7 @@
 package panels;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.swing.*;
@@ -33,11 +35,18 @@ public class RecordPanel extends ViewPanel
 		coursesTakenStr=getHead()+"Course<br>";
 		creditsTakenStr=getHead()+"Credits<br>";
 		gradesTakenStr=getHead()+"Grades<br>";
-		for(Course course : coursesTaken)
+		if(coursesTaken.size()>0)
+			for(Course course : coursesTaken)
+			{
+				coursesTakenStr+=course.getName()+"<br>";
+				creditsTakenStr+=course.getCredits()+"<br>";
+				gradesTakenStr+=course.getGrade()+"<br>";
+			}
+		else
 		{
-			coursesTakenStr+=course.getName()+"<br>";
-			creditsTakenStr+=course.getCredits()+"<br>";
-			gradesTakenStr+=course.getGrade()+"<br>";
+			coursesTakenStr+="N/A";
+			gradesTakenStr+="N/A";
+			creditsTakenStr+="N/A";
 		}
 		setTail(coursesTakenStr);
 		setTail(gradesTakenStr);
@@ -49,7 +58,14 @@ public class RecordPanel extends ViewPanel
 		creditsTakenLabel=new JLabel(creditsTakenStr);
 		gradesTakenLabel=new JLabel(gradesTakenStr);
 		takenLabel=new JLabel("Courses Completed:");
-		proceedButton=createButton("Proceed", null);
+		ActionListener al=new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				MainFrame.getFrame().setPanel(new CreditPanel());
+			}
+		};
+		proceedButton=createButton("Proceed", al);
 		
 		GroupLayout layout=new GroupLayout(this);
 		setLayout(layout);
@@ -79,5 +95,11 @@ public class RecordPanel extends ViewPanel
 				      	.addComponent(coursesLabel)
 				      	.addComponent(proceedButton)
 				);
+	}
+	@Override
+	public DetailPanel getDetailPanel() 
+	{
+		String text="This is your student record. Blablabla.";
+		return createDetailPanel(text);
 	}
 }
