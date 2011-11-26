@@ -1,0 +1,324 @@
+# Here is an example of the format:
+
+# String number,String name,float credits,Enum Group,int[] semesters,List<String> keywords,List<String> prereqs
+COMP 228,System Hardware,3.00,COMP_CORE,2:4,hardware:architecture:assembly:network:logic,COMP 248
+
+# The three last values are lists, separated by ':', you can find the semesters by going into your portal:
+# myconcordia portal > registration > undergraduate registration > Add a course >
+# Fill in course name/number, but not session > Submit & check which session numbers come up
+# Only add the courses present in this list as prerequesites (not CEGEP classes...)
+
+# Here is the info about the courses we should include:
+
+COMP_CORE
+
+COMP 232      Mathematics for Computer Science (3 credits)
+Prerequisite: MATH 203 or 209 or Cegep Mathematics 103 or NYA previously or concurrently; MATH 204 or 208 or Cegep Mathematics 105 or NYC previously or concurrently. Sets. Propositional logic and predicate calculus. Functions and relations. Elements of number theory. Proof techniques: direct proof, indirect proof, proof by contradiction, proof by induction. Lectures: three hours per week. Tutorial: two hours per week.
+NOTE: Students who have received credit for COMP 238 or COEN 231 may not take this course for credit.
+
+COMP 233      Probability and Statistics for Computer Science (3 credits)
+Prerequisite: COMP 232. Combinatorics. Axioms of probability. Conditional probability. Discrete and continuous probability distributions. Expectation and moments. Hypothesis testing. Parameter estimation. Correlation and linear regression. Applications to computer science. Lectures: three hours per week. Tutorial: two hours per week.
+NOTE: Students who have received credit for ENGR 371, STAT 249, STAT 250, COMM 215, MAST 221, MAST 333 may not take this course for credit.
+
+
+COMP 248      Object-Oriented Programming I (3 credits)
+Prerequisite: MATH 204 or 208 or Cegep Mathematics 105 or NYC previously or concurrently. Introduction to programming. Basic data types, variables, expressions, assignments, control flow. Classes, objects, methods. Information hiding, public vs. private visibility, data abstraction and encapsulation. References. Arrays. Lectures: three hours per week. Tutorial: two hours per week.
+NOTE: Students who have received credit for COMP 218 may not take this course for credit.
+
+COMP 249      Object-Oriented Programming II (3 credits)
+Prerequisite: COMP 232; COMP 248; MATH 203 or 209 or Cegep Mathematics 103 or NYA; MATH 204 or 208 or Cegep Mathematics 105 or NYC; MATH 205 or Cegep Mathematics 203 or NYB previously or concurrently. Design of classes. Inheritance. Polymorphism. Static and dynamic binding. Abstract classes. Exception handling. File I/O. Recursion. Interfaces and inner classes. Graphical user interfaces. Generics. Collections and iterators. Lectures: three hours per week. Tutorial: two hours per week.
+
+COMP 335      Introduction to Theoretical Computer Science (3 credits)
+Prerequisite: COMP 232 or COEN 231; COMP 249 or COEN 244. Finite state automata and regular languages. Push-down automata and context-free languages. Pumping lemmas. Applications to parsing. Turing machines. Undecidability and decidability. Lectures: three hours per week. Tutorial: one hour per week.
+
+COMP 346      Operating Systems (4 credits)
+Prerequisite: COMP 228 or SOEN 228; COMP 352. Fundamentals of operating system functionalities, design and implementation. Multi-programming: processes and threads, context switching, queuing models and scheduling. Inter-process communication and synchronization. Principles of concurrency. Synchronization primitives. Deadlock detection and recovery, prevention and avoidance schemes. Memory management. Device management. File systems. Protection models and schemes. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+NOTE: Students who have received credit for COEN 346 may not take this course for credit.
+
+COMP 348      Principles of Programming Languages (3 credits)
+Prerequisite: COMP 249. Survey of programming paradigms: Imperative, functional, and logic programming. Issues in the design and implementation of programming languages. Declaration models: binding, visibility, and scope. Type systems, including static and dynamic typing. Parameter passing mechanisms. Hybrid language design. Lectures: three hours per week. Tutorial: one hour per week.
+
+COMP 352      Data Structures and Algorithms (3 credits)
+Prerequisite: COMP 232 previously or concurrently; COMP 249. Abstract data types: stacks and queues, trees, priority queues, dictionaries. Data structures: arrays, linked lists, heaps, hash tables, search trees. Design and analysis of algorithms: asymptotic notation, recursive algorithms, searching and sorting, tree traversal, graph algorithms. Lectures: three hours per week. Tutorial: one hour per week.
+NOTE: Students who have received credit for COEN 352 may not take this course for credit.
+
+COMP 354      Introduction to Software Engineering (4 credits)
+Prerequisite: COMP 352; ENCS 282. Software development process models (e.g. linear vs. iterative). Project management; roles, activities and deliverables for each software life cycle phase. Requirements management: analysis, elicitation, and scope. Architecture, design and the mapping of requirements to design and design to implementation. Traceability. Software quality assurance: verification, validation and the role of testing. Maintenance and evolution. Project. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+NOTES: 1. Students who have received credit for SOEN 341 may not take this course for credit.
+2. Students in the BEng in Software Engineering program may not take this course for credit.
+
+ENCS_CORE
+ 
+ENCS 282 	Technical Writing and Communication 	3.00
+- no prereqs, make shit up for keywords, this wasn't in the list
+
+ENCS 393 	Social and Ethical Dimensions of Information and
+            Communication Technologies 	            3.00
+- prereq: ENCS 282, make shit up for keywords, this wasn't in the list
+
+MATH_ELEC
+
+COMP 339      Combinatorics (3 credits)
+Prerequisite: COMP 232 or 18 credits in post-Cegep Mathematics. General principles of counting, permutations, combinations, identities, partitions, generating functions, Fibonacci numbers, Stirling numbers, Catalan numbers, principle of inclusion-exclusion. Graphs, sub-graphs, isomorphism, Euler graphs, Hamilton paths and cycles, planar graphs, Kuratowski’s Theorem, trees, colouring, 5-colour theorem, matching, Hall’s theorem.
+NOTE: Students who have received credit for MATH 339 may not take this course for credit.
+
+COMP 361      Elementary Numerical Methods (3 credits)
+Prerequisite: COMP 232, 249. Vector and matrix norms. Numerical methods for solving linear systems, Gaussian elimination, LU decomposition, error analysis. Numerical solution of nonlinear equations, Newton’s method, fixed point iterations. Interpolation and approximation, Taylor, Lagrange, Chebyshev and Legendre polynomials. Cubic spline interpolation. Numerical differentiation, numerical integration, Gauss quadrature. Discrete least-squares approximation. Initial value problems in ordinary differential equations, stiff differential equations. Boundary value problems in ordinary differential equations. Lectures: three hours per week. Tutorial: one hour per week.
+NOTE: Students who have received credit for ENGR 391 or MAST 334 may not take this course for credit.
+
+COMP 367      Techniques in Symbolic Computation (3 credits)
+Prerequisite: COMP 232 or MAST 217; COMP 248 or MAST 234. Symbolic computation and its use in pure and applied mathematics, in particular in algebra, number theory, cryptography, coding theory, and combinatorics. Programming in a symbolic computing system (e.g. MAPLE).
+NOTE: Students who have received credit for MAST 332 may not take this course for credit.
+
+ENGR 213 	Applied Ordinary Differential Equations 	3.00
+no prereqs - make shit up this wasn't in the list
+
+ENGR 233 	Applied Advanced Calculus 	3.00
+prereq: ENGR 213 - make shit up this wasn't in the list
+
+MAST 218 	Multivariable Calculus I 	3.00
+MAST 219 	Multivariable Calculus II 	3.00
+MAST 224 	Introduction to Optimization 	3.00
+MAST 234 	Linear Algebra and Applications I 	3.00
+MAST 235 	Linear Algebra and Applications II 	3.00
+MAST 332 	Techniques in Symbolic Computation 	3.00
+MAST 334 	Numerical Analysis 	3.00
+MATH 339 	Combinatorics 	3.00
+MATH 392 	Elementary Number Theory 	3.00
+
+
+GAMES_ELEC
+
+COMP 345      Advanced Program Design with C++ (3 credits)
+Prerequisite: COMP 352 previously or concurrently. Introduction to C++. I/O with stream classes. Pointers and their uses. The Standard Template Library (STL): containers, algorithms, iterators, adaptors, function objects. Class design: constructors, destructors, operator overloading, inheritance, virtual functions, exception handling, memory management. Advanced topics: libraries, locales, STL conventions, concurrency, template meta-programming. Applications of C++: systems, engineering, games programming. Project. Lectures: three hours per week.
+NOTE: Students who have received credit for COMP 446 may not take this course for credit.
+
+COMP 353      Databases (4 credits)
+Prerequisite: COMP 352 or COEN 352. Introduction to database management systems. Conceptual database design: the entity-relationship model. The relational data model and relational algebra: functional dependencies and normalization. The SQL language and its application in defining, querying, and updating databases; integrity constraints; triggers. Developing database applications. Other data models: Datalog. Object-oriented data model and ODL. Semi-structured data. Project. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+NOTE: Students who have received credit for COMP 318 may not take this course for credit.
+
+COMP 371      Computer Graphics (4 credits)
+Prerequisite: COMP 345 previously or concurrently or COEN 244; COMP 352 or COEN 352. Introduction to computer graphics and graphics hardware. Introduction to graphics API and graphics systems architecture. Mathematics of 2D and 3D transformations, and 2D and 3D viewing. Colour and basic rendering algorithms. Visual realism and visibility. Illumination and shading, global illumination techniques, and textures. Introduction to curves and surfaces, and 3D object modelling. Introduction to computer animation. Project. Lectures: three hours per week. Laboratory: two hours per week.
+NOTE: Students who have received credit for COMP 471 may not take this course for credit.
+
+COMP 376      Introduction to Game Development (4 credits)
+Prerequisite: COMP 371 previously or concurrently. Introduction to design and implementation aspects of computer gaming: basic game design, story-telling and narratives, and game genres. Virtual environments, 2D and 3D game engines, and game development tools. Character development, gameplay strategies, level design in games, and user interfaces. Architecture of game consoles, analog and digital controllers, and the incorporation of graphics, sound, and music in game implementations. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 472      Artificial Intelligence (4 credits)
+Prerequisite: COMP 352 or COEN 352. Scope of AI. First-order logic. Automated reasoning. Search and heuristic search. Game-playing. Planning. Knowledge representation. Probabilistic reasoning. Introduction to machine learning. Introduction to natural language processing. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 476      Advanced Game Development (4 credits)
+Prerequisite: COMP 361 or ENGR 391; COMP 376. Introduction to advanced aspects of computer games. Artificial Intelligence: acting, game state, perception, reacting, searching, and learning. Group behaviour, non-player characters and bots, opponent modelling, and strategy. Physics-based techniques: path-finding and collision detection and response. Networked gaming: multi-player games, networking and distributed game design, massively multi-player online games (MMOGs). Improving realism: advanced rendering techniques such as ray-tracing, GPU programming, 3D scene management, level-of-detail, terrains, and 3D sound. Testing for games. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 477      Animation for Computer Games (4 credits)
+Prerequisite: COMP 361 or ENGR 391; COMP 371. Introduction to the algorithms, data structures, and techniques used in modelling and rendering dynamic scenes. Topics include principles of traditional animation, production pipeline, animation hardware and software, orientation representation and interpolation, modelling physical and articulated objects, forward and inverse kinematics, motion control and capture, key-frame, procedural, and behavioural animation, camera animation, scripting system, and free-form deformation. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+WEB_ELEC
+
+COMP 353      Databases (4 credits)
+Prerequisite: COMP 352 or COEN 352. Introduction to database management systems. Conceptual database design: the entity-relationship model. The relational data model and relational algebra: functional dependencies and normalization. The SQL language and its application in defining, querying, and updating databases; integrity constraints; triggers. Developing database applications. Other data models: Datalog. Object-oriented data model and ODL. Semi-structured data. Project. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+NOTE: Students who have received credit for COMP 318 may not take this course for credit.
+
+COMP 445      Data Communication and Computer Networks (4 credits)
+Prerequisite: COMP 346. Network architectures: OSI and Internet models. Link layer: error detection, multiple access protocols, addressing. Local area networks: Ethernet, ATM, switches and hubs. Network layer: forwarding and routing, IP, routing algorithms, multicast. Transport layer: connectionless and connection-oriented transport, reliable data transport, congestion control, QoS, UDP and TCP. Application layer: DNS, the Web and http, file transfer, and e-mail. Introduction to network security, multimedia protocols and wireless networking. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 479      Information Retrieval and Web Search (4 credits)
+Prerequisite: COMP 233 or ENGR 371; COMP 352. Basics of information retrieval (IR): boolean, vector space and probabilistic models. Tokenization and creation of inverted files. Weighting schemes. Evaluation of IR systems: precision, recall, F-measure. Relevance feedback and query expansion. Application of IR to Web search engines: XML, link analysis, PageRank algorithm. Text categorization and clustering techniques as used in spam filtering. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+SOEN 287      Web Programming (3 credits)
+Prerequisite: COMP 248. Internet architecture and protocols. Web applications through clients and servers. Markup languages. Client-side programming using scripting languages. Static website contents and dynamic page generation through server-side programming. Preserving state (client-side) in Web applications. Lectures: three hours per week. Tutorial: two hours per week.
+
+SOEN 387      Web-Based Enterprise Application Design (3 credits)
+Prerequisite: COMP 353; COMP 354 or SOEN 341; SOEN 287. Hypertext Transfer Protocol (HTTP), Web mark-up languages and encodings. Document Object Models (DOM). Client/server and layered architectures for Web-based Enterprise Applications (WEA). Presentation, Domain and Data Source design patterns. Client-side programming. Java servlets and Java Server Pages. Authentication, security and transaction processing. Lectures: three hours per week. Tutorial: one hour per week.
+
+SOEN 423      Distributed Systems (4 credits)
+Prerequisite: COMP 346. Principles of distributed computing: scalability, transparency, concurrency, consistency, fault tolerance, high availability. Client-server interaction technologies: interprocess communication, sockets, group communication, remote procedure call, remote method invocation, object request broker, CORBA, Web services. Server design techniques: process replication, fault tolerance through passive replication, high availability through active replication, coordination and agreement, transactions and concurrency control. Lectures: three hours per week. Tutorial one hour per week. Laboratory: two hours per week.
+
+SOEN 487      Web Services and Applications (4 credits)
+Prerequisite: SOEN 387 previously or concurrently. Analysis and design of Web services and applications. Advanced architectures for the design, deployment, and testing of large multi-server Web services and applications. Service Oriented Architecture (SOA). Electronic Commerce. Security. Load balancing. Stress testing. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+
+CSYS_ELEC
+
+COMP 326      Computer Architecture (3 credits)
+Prerequisite: COMP 346. Computer architecture models: control-flow and data-flow. Concurrency and locality, data dependency theory. Instruction level parallelism. Instruction scheduling. Pipelined processors. Vector processors. Thread level parallelism. Multiprocessors. Shared memory models. Coherence protocols. Interconnection networks. Performance issues. Advanced topics in contemporary computer architectures. Lectures: three hours per week. Tutorial: one hour per week.
+
+COMP 345      Advanced Program Design with C++ (3 credits)
+Prerequisite: COMP 352 previously or concurrently. Introduction to C++. I/O with stream classes. Pointers and their uses. The Standard Template Library (STL): containers, algorithms, iterators, adaptors, function objects. Class design: constructors, destructors, operator overloading, inheritance, virtual functions, exception handling, memory management. Advanced topics: libraries, locales, STL conventions, concurrency, template meta-programming. Applications of C++: systems, engineering, games programming. Project. Lectures: three hours per week.
+NOTE: Students who have received credit for COMP 446 may not take this course for credit.
+
+COMP 426      Multicore Programming (4 credits)
+Prerequisite: COMP 346 or COEN 346. Fundamental concepts of computer architecture. Architecture of the selected multicore platform. Review of shared-memory parallel programming. The difficulties inherent to parallel programming. Scalability of programming models. The stream programming model for multicore. Implicit and explicit threading. Implicit and explicit orchestration of data movement, both on chip and off. Adapting standard algorithms to multicore. Critical assessment of the available system-software support. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 428      Parallel Programming (4 credits)
+Prerequisite: COMP 346. Parallel programming techniques as a natural extension to sequential programming. Overview of parallel programming architectures and models. Parallel programming issues: locality, granularity, scheduling, data decomposition and distribution, load balancing, communication and synchronization, determinacy and non-determinacy, cost and performance. Techniques and tools for message-passing parallel programming. Case studies. Project. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+
+COMP 445      Data Communication and Computer Networks (4 credits)
+Prerequisite: COMP 346. Network architectures: OSI and Internet models. Link layer: error detection, multiple access protocols, addressing. Local area networks: Ethernet, ATM, switches and hubs. Network layer: forwarding and routing, IP, routing algorithms, multicast. Transport layer: connectionless and connection-oriented transport, reliable data transport, congestion control, QoS, UDP and TCP. Application layer: DNS, the Web and http, file transfer, and e-mail. Introduction to network security, multimedia protocols and wireless networking. Lectures: three hours per week. Laboratory: two hours per week.
+
+SOEN 422      Embedded Systems and Software (3 credits)
+Prerequisite: COMP 346. Characteristics of embedded systems. Microcontroller architecture and typical target systems. Programming issues related to mixed languages. Real-time kernel services: task management; intertask communication and synchronization; memory management; time management; interrupt support; configuration; and initialization. Development methods: state machines and fuzzy logic. Debugging methods for interrupts. Testing and simulation methods. Lectures: three hours per week.
+NOTE: Students who have received credit for COEN 421 may not take this course for credit.
+
+SOEN 423      Distributed Systems (4 credits)
+Prerequisite: COMP 346. Principles of distributed computing: scalability, transparency, concurrency, consistency, fault tolerance, high availability. Client-server interaction technologies: interprocess communication, sockets, group communication, remote procedure call, remote method invocation, object request broker, CORBA, Web services. Server design techniques: process replication, fault tolerance through passive replication, high availability through active replication, coordination and agreement, transactions and concurrency control. Lectures: three hours per week. Tutorial one hour per week. Laboratory: two hours per week.
+
+SSYS_ELEC
+
+COMP 326      Computer Architecture (3 credits)
+Prerequisite: COMP 346. Computer architecture models: control-flow and data-flow. Concurrency and locality, data dependency theory. Instruction level parallelism. Instruction scheduling. Pipelined processors. Vector processors. Thread level parallelism. Multiprocessors. Shared memory models. Coherence protocols. Interconnection networks. Performance issues. Advanced topics in contemporary computer architectures. Lectures: three hours per week. Tutorial: one hour per week.
+
+COMP 353      Databases (4 credits)
+Prerequisite: COMP 352 or COEN 352. Introduction to database management systems. Conceptual database design: the entity-relationship model. The relational data model and relational algebra: functional dependencies and normalization. The SQL language and its application in defining, querying, and updating databases; integrity constraints; triggers. Developing database applications. Other data models: Datalog. Object-oriented data model and ODL. Semi-structured data. Project. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+NOTE: Students who have received credit for COMP 318 may not take this course for credit.
+
+COMP 361      Elementary Numerical Methods (3 credits)
+Prerequisite: COMP 232, 249. Vector and matrix norms. Numerical methods for solving linear systems, Gaussian elimination, LU decomposition, error analysis. Numerical solution of nonlinear equations, Newton’s method, fixed point iterations. Interpolation and approximation, Taylor, Lagrange, Chebyshev and Legendre polynomials. Cubic spline interpolation. Numerical differentiation, numerical integration, Gauss quadrature. Discrete least-squares approximation. Initial value problems in ordinary differential equations, stiff differential equations. Boundary value problems in ordinary differential equations. Lectures: three hours per week. Tutorial: one hour per week.
+NOTE: Students who have received credit for ENGR 391 or MAST 334 may not take this course for credit.
+
+COMP 445      Data Communication and Computer Networks (4 credits)
+Prerequisite: COMP 346. Network architectures: OSI and Internet models. Link layer: error detection, multiple access protocols, addressing. Local area networks: Ethernet, ATM, switches and hubs. Network layer: forwarding and routing, IP, routing algorithms, multicast. Transport layer: connectionless and connection-oriented transport, reliable data transport, congestion control, QoS, UDP and TCP. Application layer: DNS, the Web and http, file transfer, and e-mail. Introduction to network security, multimedia protocols and wireless networking. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 465      Design and Analysis of Algorithms (3 credits)
+Prerequisite: COMP 335; COMP 352 or COEN 352. Order statistics: worst-case, average-case and amortized analysis. Algorithm design techniques: greedy algorithms, dynamic programming. Selected algorithms from graph theory, linear programming, number theory, string matching, and computational geometry. A survey of hard problems, NP-completeness, and approximation algorithms. Lectures: three hours per week.
+
+ISYS_ELEC
+
+ACCO 220 	Financial and Managerial Accounting 	3.00
+COMM 210 	Contemporary Business Thinking 	3.00
+COMM 222 	Organizational Behaviour and Theory 	3.00
+COMM 224 	Marketing Management 	3.00
+COMM 225 	Production and Operations Management 	3.00
+COMM 308 	Introduction to Finance 	3.00
+
+COMP 353      Databases (4 credits)
+Prerequisite: COMP 352 or COEN 352. Introduction to database management systems. Conceptual database design: the entity-relationship model. The relational data model and relational algebra: functional dependencies and normalization. The SQL language and its application in defining, querying, and updating databases; integrity constraints; triggers. Developing database applications. Other data models: Datalog. Object-oriented data model and ODL. Semi-structured data. Project. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+NOTE: Students who have received credit for COMP 318 may not take this course for credit.
+
+DESC 361 	Management Science Models for Operations Management 	3.00
+DESC 372 	Supply Chain Planning and Control 	3.00
+DESC 387 	E-Business Systems 	3.00
+DESC 389 	Information Systems Integration 	3.00
+DESC 445 	Statistical Software for Data Management and Analysis 	3.00
+DESC 489 	Electronic Business Implementation 	3.00
+ECON 201 	Introduction to Microeconomics 	3.00
+
+GEN_ELEC
+
+BIOL 206 	Elementary Genetics 	3.00
+BIOL 208 	Environmental Biology 	3.00
+BIOL 226 	Biodiversity and Ecology 	3.00
+BIOL 261 	Molecular and General Genetics 	3.00
+CHEM 209 	Discovering Biotechnology 	3.00
+CHEM 217 	Introductory Analytical Chemistry I 	3.00
+CHEM 221 	Introductory Organic Chemistry I 	3.00
+CHEM 234 	Physical Chemistry I: Thermodynamics 	3.00
+GEOL 206 	Earthquakes, Drifting Continents and Volcanoes 	3.00
+GEOL 208 	The Earth, Moon and the Planets 	3.00
+PHYS 252 	Optics 	3.00
+PHYS 253 	Electricity and Magnetism I 	3.00
+PHYS 273 	Energy and Environment 	3.00
+PHYS 334 	Thermodynamics 	3.00
+PHYS 354 	Electricity and Magnetism II 	3.00
+PHYS 384 	Introduction to Astronomy 	3.00
+PHYS 385 	Astrophysics 	3.00
+
+COMP 442      Compiler Design (4 credits)
+Prerequisite: COMP 228 or SOEN 228 or COEN 311; COMP 335; COMP 352 or COEN 352. Compiler organization and implementation: lexical analysis and parsing, syntax-directed translation, code optimization. Run-time systems. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 444      System Software Design (4 credits)
+Prerequisite: COMP 346. Detailed examination of the design, implementation and system call interface of a contemporary operating system: its kernel, file system, process and thread management including scheduling, file system design and implementation, memory management, device management, I/O management, interprocess communication and synchronization mechanisms, system call interface, interrupt handling, and other advanced issues. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 451      Database Design (4 credits)
+Prerequisite: COMP 353. Storage management. Buffer management. Data organization. Index structures. Query optimization and execution. Transaction management. Recovery. Concurrency control. Database performance analysis and tuning. New trends in database technology. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 473      Pattern Recognition (4 credits)
+Prerequisite: COMP 352. Preprocessing. Feature extraction and selection. Similarity between patterns and distance measurements. Syntactic and statistical approaches. Clustering analysis. Bayesian decision theory and discriminant functions. Neural networks and machine learning. Applications. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 474      Intelligent Systems (4 credits)
+Prerequisite: COMP 352 or COEN 352. Rule-based expert systems, blackboard architecture, and agent-based. Knowledge acquisition and representation. Uncertainty and conflict resolution. Reasoning and explanation. Design of intelligent systems. Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 478      Image Processing (4 credits)
+Prerequisite: COMP 352. Digital image fundamentals, image transforms (Fourier, Walsh, Haar, Hotelling, wavelet), image enhancement (histogram processing, spatial filtering, high- and low-pass filtering), image restoration, image compression (elements of information theory, image compression models, error-free compression, lossy compression, image compression standards), image segmentation (line detection, Hough transform, edge detection and linking, thresholding, region splitting and merging), representation and description (chain codes, signatures, skeletons, shape descriptors, moments, texture). Project. Lectures: three hours per week. Laboratory: two hours per week.
+
+COMP 229      System Software (3 credits)
+Prerequisite: COMP 228; COMP 248; MATH 203 or 209 or Cegep Mathematics 103 or NYA; MATH 204 or 208 or Cegep Mathematics 105 or NYC. Hardware-software interface, system kernel, system services, system evolution. Assemblers, compilers, linkers, and loaders. System component interfaces. User-level view of operating systems. Lectures: three hours per week. Tutorial: two hours per week.
+NOTE: Students who have received credit for SOEN 229 or COEN 311 may not take this course for credit.
+
+COMP 239      Mathematics for Computer Science II (3 credits)
+Prerequisite: COMP 232; MATH 203 or 209 or Cegep Mathematics 103 or NYA; MATH 204 or 208 or Cegep Mathematics 105 or NYC; MATH 205 or Cegep Mathematics 203 or NYB previously or concurrently. Counting and number theory. Permutations and combinations. Recurrence relations. Graphs and trees. Lectures: three hours per week. Tutorial: two hours per week.
+
+COMP 318      Introduction to Database Applications (4 credits)
+Prerequisite: COMP 218 or COMP 248, or a course in C, C++, or Java. This is a hands-on course on database technology intended for non-computer science students in engineering, science, business, or arts. It emphasizes practical issues in application development while introducing the fundamentals of databases with a focus on the relational data model and the Structured Query Language (SQL). Upon completion of this course, students will be able to design and implement databases, and develop user interfaces to access, search, and update the database through the Internet using the Web technology. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+NOTE: Students who have received credit for COMP 353 may not take this course for credit.
+NOTE: Students in the BCompSc program may not take this course for credit.
+
+COMP 327      Digital System Design (4 credits)
+Prerequisite: COMP 228 or SOEN 228. Basic theory and techniques related to the design of digital systems: design specifications, manipulation of Boolean expressions and its relation to logic circuit design. Sequential circuit design. Design with SSI and MSI circuits. Interfacing with devices. Lectures: three hours per week. Tutorial: one hour per week. Laboratory: two hours per week.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMP 475 Human-Computer Interaction (3 credits)
+Prerequisite: COMP 352. Importance of human-computer interactions in modern computer applications: desktop, hand-held, and embedded computers. Empirical nature of user interface testing and evaluation. Input and output: devices, methods and media. Human cognition and user modelling. Relating task models and dialog models to user interface (UI) design. Principles of graphical UI design and user-centred design. Usability definitions and usability testing. Relevant ISO standards. Case studies. Lectures: three hours per week.
+
+
+
+
+
+
+
+
+
+COMP 490      Computer Science Project I (3 credits)
+Prerequisite: ENCS 282; completion of 60 credits; permission of the Department. Students will work on a computer science project under the supervision of a faculty member and submit a suitable written report on the work carried out. Students planning to register for this course should consult with the Department prior to registration in the final year of study.
+NOTE: Students can register for COMP 490 by itself or, with the permission of the Department, students can register for COMP 490 and 492 concurrently and carry out a major project.
+
+COMP 492      Computer Science Project II (3 credits)
+Prerequisite: COMP 490 previously or concurrently; permission of the Department. Students will work on a computer science project under the supervision of a faculty member and submit a suitable written report on the work carried out. Students planning to register for this course should consult with the Department prior to registration in their final year of study.
+NOTE: Students can register for COMP 492 by itself or, with the permission of the Department, students can register for COMP 490 and 492 concurrently and carry out a major project.
+
+COMP 495      Honours Seminar (1 credit)
+Prerequisite: ENCS 282; registration in the final year of the Honours program. Students are required to attend a number of departmental seminars and submit a written report on them.
+
+COMP 498      Topics in Computer Science (3 credits)
+Prerequisite: Permission of the Department. This course may be offered in a given year upon the authorization of the Department. The content may vary from offering to offering and will be chosen to complement the available elective courses. Lectures: three hours per week.
