@@ -1,2 +1,15 @@
-Intelligent Systems,COMP 474,3.0
-Pattern Recognition,COMP 473,3.0
+# COMP_CORE, ENCS_CORE, COMP_ELEC, MATH_ELEC, GEN_ELEC,
+# GAME_ELEC, WEB_ELEC, CSYS_ELEC, SSYS_ELEC, ISYS_ELEC, ART_ELEC, STAT_ELEC
+
+
+COMP 228,System Hardware,3.00,COMP_CORE,sem,key,pre
+COMP 232,Mathematics for Computer Science,3.00,COMP_CORE
+COMP 233,Probability and Statistics for Computer Science,3.00,COMP_CORE
+COMP 248,Object-Oriented Programming I,3.00,COMP_CORE
+COMP 249,Object-Oriented Programming II,3.00,COMP_CORE
+COMP 335,Introduction to Theoretical Computer Science,3.00,COMP_CORE
+COMP 346,Operating Systems,4.00,COMP_CORE
+COMP 348,Principles of Programming Languages,3.00,COMP_CORE
+COMP 352,Data Structures and Algorithms,3.00,COMP_CORE
+COMP 354,Introduction to Software Engineering,4.00,COMP_CORE
+COMP 474,Intelligent Systems,4,COMP_ELEC,1:2,AI:Expert System,COMP 352:COMP 248

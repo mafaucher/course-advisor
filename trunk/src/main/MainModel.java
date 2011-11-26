@@ -82,13 +82,21 @@ public class MainModel
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(COURSE_FILE), "UTF-8"));
             while( (line = br.readLine()) != null )
             {
+                // Skip lines with a leading '#' or only whitespace
+                if ( line.trim().charAt(0) == '#' || line.trim().equals("") )
+                {
+                    continue;
+                }
+
+                // new Course from comma seperated values
                 String[] result = line.split(CSV_ATTR_SEPARATOR);
                 Course course = new Course( result[0],
                                             result[1],
                                             new Float(result[2]).floatValue(),
                                             Course.asGroup(result[3]),
                                             Arrays.asList(result[5].split(CSV_LIST_SEPARATOR)) );
-                // Convert semesters to int array
+
+                // Assign available semesters
                 String[] strSemesters = result[4].split(CSV_LIST_SEPARATOR);
                 int[] intSemesters = new int[4];
                 for (int i = 0; i < strSemesters.length && i < intSemesters.length; i++)
@@ -117,6 +125,13 @@ public class MainModel
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(COURSE_FILE), "UTF-8"));
             while( (line = br.readLine()) != null )
             {
+                // Skip lines with a leading '#' or only whitespace
+                if ( line.trim().charAt(0) == '#' || line.trim().equals("") )
+                {
+                    continue;
+                }
+
+                // new CourseEntry from comma seperated values
                 String[] result = line.split(CSV_ATTR_SEPARATOR);
                 Course course = getCourse(result[0]);
                 List<String> prereqs = new ArrayList<String>( Arrays.asList( result[6].split(CSV_LIST_SEPARATOR) ) );
