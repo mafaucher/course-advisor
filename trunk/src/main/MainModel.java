@@ -2,9 +2,12 @@ package main;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.io.*;
+
+import filters.IFilter;
 
 public class MainModel 
 {
@@ -21,27 +24,53 @@ public class MainModel
 	private StudentRecord record;
 	private Hashtable<String, Course> courses;
 	private ArrayList<String> errorMsgs;
-
+	private ArrayList<IFilter> filters;
 	public MainModel()
 	{
 		errorMsgs = new ArrayList<String>();
 		courses = new Hashtable<String, Course>();
-		loadCourses();
+		filters=new ArrayList<IFilter>();
+		loadTestData();
+		//loadCourses();
 	}
 
 	private void loadTestData()
 	{
 		record=new StudentRecord("Ratslayer", 9591222, 8.9f, 9.001f);
-		/*addCourse(new Course("COMP", "474", 4.0f));
-		addCourse(new Course("COMP", "373", 3.0f));
-		addCourse(new Course("COMP", "576", 5.0f));
-		addCourse(new Course("COMP", "273", 1.0f));
+		addCourse(new Course("COMP 474", "Intelligent Systems", 4.0f));
+		addCourse(new Course("COMP 373", "Some stupid course", 3.0f));
+		addCourse(new Course("COMP 576", "Some smart course", 5.0f));
+		addCourse(new Course("COMP 273", "Some course", 1.0f));
 		record.addCourseTaken(getCourse("COMP 474"), 4.3f);
 		record.addCourseTaken(getCourse("COMP 373"), 3.0f);
 		record.addCourseTaken(getCourse("COMP 576"), 3.7f);
-		record.addCourse(getCourse("COMP 273"));*/
+		record.addCourse(getCourse("COMP 273"));
 	}
-
+	public void addFilter(IFilter filter)
+	{
+		filters.add(filter);
+	}
+	public ArrayList<Course> getAllCourses()
+	{
+		Enumeration<Course> allCourses=courses.elements();
+		ArrayList<Course> courses=new ArrayList<Course>();
+		while(allCourses.hasMoreElements())
+			courses.add(allCourses.nextElement());
+		return courses;
+	}
+	public void computeScores()
+	{
+		ArrayList<Course> courses=getAllCourses();
+		for(Course course : courses)
+		{
+			float score=1.0f;
+			for(IFilter filter : filters)
+			{
+				score=filter.ProcessScore(course, score);
+			}
+			course.score=score;
+		}
+	}
 	public void addError(String err)
 	{
 		errorMsgs.add(new String(err));

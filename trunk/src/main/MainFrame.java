@@ -25,7 +25,7 @@ public class MainFrame extends JFrame
 		setPanel(new LoginPanel());
 		setVisible(true);
 	}
-	public MainModel getModel()
+	public static MainModel getModel()
 	{
 		return model;
 	}

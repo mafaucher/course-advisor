@@ -6,7 +6,7 @@ public class Controller
 {
 	public static StudentRecord getRecord()
 	{
-		return MainFrame.getFrame().getModel().getRecord();
+		return MainFrame.getModel().getRecord();
 	}
 	public static float suggestNumberOfCredits()
 	{
@@ -15,11 +15,11 @@ public class Controller
 	}
 	public static void reportError(String err)
 	{
-		MainFrame.getFrame().getModel().addError(err);
+		MainFrame.getModel().addError(err);
 	}
 	public static ArrayList<String> getErrors()
 	{
-		return MainFrame.getFrame().getModel().getErrors();
+		return MainFrame.getModel().getErrors();
 	}
 	public static String embedHtml(String str)
 	{
