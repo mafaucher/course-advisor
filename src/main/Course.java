@@ -2,7 +2,6 @@ package main;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Course
 {
@@ -41,7 +40,7 @@ public class Course
 	//this is info pertaining to the student's relationship to the course
 	//this should prolly be later consolidated in another class
 	private float grade;
-	public float value=1;
+	public float score=0;
     // Constructors
 
 	public Course(String number, String name, float credits)

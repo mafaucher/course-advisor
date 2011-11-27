@@ -20,7 +20,7 @@ public class RecordPanel extends ViewPanel
 	public RecordPanel()
 	{
 		//declare vars
-		StudentRecord record=MainFrame.getFrame().getModel().getRecord();
+		StudentRecord record=MainFrame.getModel().getRecord();
 		String nameStr, coursesTakenStr, creditsTakenStr, gradesTakenStr, coursesStr;
 		List<Course> coursesTaken=record.getCoursesTaken();
 		List<Course> courses=record.getCourses();
