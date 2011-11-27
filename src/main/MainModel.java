@@ -21,12 +21,14 @@ public class MainModel
 	private StudentRecord record;
 	private Hashtable<String, Course> courses;
 	private ArrayList<String> errorMsgs;
+
 	public MainModel()
 	{
 		errorMsgs = new ArrayList<String>();
 		courses = new Hashtable<String, Course>();
-		loadTestData();
+		loadCourses();
 	}
+
 	private void loadTestData()
 	{
 		record=new StudentRecord("Ratslayer", 9591222, 8.9f, 9.001f);
@@ -39,6 +41,7 @@ public class MainModel
 		record.addCourseTaken(getCourse("COMP 576"), 3.7f);
 		record.addCourse(getCourse("COMP 273"));*/
 	}
+
 	public void addError(String err)
 	{
 		errorMsgs.add(new String(err));
