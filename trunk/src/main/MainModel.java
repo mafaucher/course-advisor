@@ -99,12 +99,12 @@ public class MainModel
         ArrayList<Course> courses = getAllCourses();
         for(Course course : courses)
         {
-            float score = 1.0f;
+            double score = 1.0f;
             for(IFilter filter : filters)
             {
                 score = filter.processScore(course, score);
             }
-            course.setScore = score;
+            course.setScore(score);
         }
     }
 

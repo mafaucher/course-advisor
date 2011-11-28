@@ -5,7 +5,7 @@ import main.Course;
 public class PreferenceFilter implements IFilter {
 
 	@Override
-	public float ProcessScore(Course course, float score) {
+	public double ProcessScore(Course course, double score) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -62,7 +62,7 @@ public class CreditPanel extends ViewPanel
 				      			.addComponent(backButton))
 				);
 	}
-	private float getSuggestedCredits()
+	private double getSuggestedCredits()
 	{
 		String creditStr=suggestedCreditsField.getText();
 		return Float.valueOf(creditStr);
