@@ -26,12 +26,12 @@ public class LevelFilter implements IFilter {
 	    }
 	}
 	
-	// Check if student has taken all 200 level classes for the same type (COMP, MAST...)
+	// Check if student has taken all 200 level courses for the same type (COMP, MAST...)
 	private boolean testQualification(Course testedCourse)
 	{
 	    for (Course course : MainFrame.getModel().getAllCourses())
 	    {
-	        // Check if this class is necessary
+	        // Check if this course is necessary
 	        if (type(course).equals(type(testedCourse)) && level(course) == 2)
 	        {
 	            if (!course.wasTaken())
