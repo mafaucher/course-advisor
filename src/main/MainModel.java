@@ -166,7 +166,7 @@ public class MainModel
                     continue;
                 }
 
-                // new CourseEntry from comma seperated values
+                // new CourseEntry from comma separated values
                 String[] result = line.split(CSV_ATTR_SEPARATOR);
                 Course course = getCourse(result[0]);
                 List<String> prereqs = new ArrayList<String>();

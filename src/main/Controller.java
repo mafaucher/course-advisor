@@ -10,8 +10,7 @@ public class Controller
 	}
 	public static double suggestNumberOfCredits()
 	{
-		//StudentRecord record=getRecord();
-		return 15;
+		return getRecord().getSuggestedCredits();
 	}
 	public static void reportError(String err)
 	{
