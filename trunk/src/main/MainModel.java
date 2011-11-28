@@ -23,89 +23,94 @@ public class MainModel
 
 	private StudentRecord record;
 	private Hashtable<String, Course> courses;
-	private ArrayList<String> errorMsgs;
+	private ArrayList<String> errors;
 	private ArrayList<IFilter> filters;
+
 	public MainModel()
 	{
-		errorMsgs = new ArrayList<String>();
+		errors = new ArrayList<String>();
 		courses = new Hashtable<String, Course>();
 		filters=new ArrayList<IFilter>();
-		loadTestData();
-		//loadCourses();
+		loadCourses();
 	}
+	
+    // Getters
 
-	private void loadTestData()
-	{
-		record=new StudentRecord("Ratslayer", 9591222, 8.9f, 9.001f);
-		addCourse(new Course("COMP 474", "Intelligent Systems", 4.0f));
-		addCourse(new Course("COMP 373", "Some stupid course", 3.0f));
-		addCourse(new Course("COMP 576", "Some smart course", 5.0f));
-		addCourse(new Course("COMP 273", "Some course", 1.0f));
-		record.addCourseTaken(getCourse("COMP 474"), 4.3f);
-		record.addCourseTaken(getCourse("COMP 373"), 3.0f);
-		record.addCourseTaken(getCourse("COMP 576"), 3.7f);
-		record.addCourse(getCourse("COMP 273"));
-	}
-	public void addFilter(IFilter filter)
-	{
-		filters.add(filter);
-	}
-	public ArrayList<Course> getAllCourses()
-	{
-		Enumeration<Course> allCourses=courses.elements();
-		ArrayList<Course> courses=new ArrayList<Course>();
-		while(allCourses.hasMoreElements())
-			courses.add(allCourses.nextElement());
-		return courses;
-	}
-	public void computeScores()
-	{
-		ArrayList<Course> courses=getAllCourses();
-		for(Course course : courses)
-		{
-			float score=1.0f;
-			for(IFilter filter : filters)
-			{
-				score=filter.ProcessScore(course, score);
-			}
-			course.score=score;
-		}
-	}
-	public void addError(String err)
-	{
-		errorMsgs.add(new String(err));
-	}
-	public ArrayList<String> getErrors()
-	{
-		return errorMsgs;
-	}
-	public void clearErrors()
-	{
-		errorMsgs.clear();
-	}
-	public void addCourse(Course course)
-	{
-		courses.put(course.getNumber(), course);
-	}
-	public Course getCourse(String courseNumber)
-	{
-		return courses.get(courseNumber);
-	}
 	public StudentRecord getRecord()
 	{
 		return record;
 	}
+    
+    public ArrayList<Course> getAllCourses()
+    {
+        Enumeration<Course> allCourses=courses.elements();
+        ArrayList<Course> courses=new ArrayList<Course>();
+        while(allCourses.hasMoreElements())
+            courses.add(allCourses.nextElement());
+        return courses;
+    }
+ 
+    public Course getCourse(String courseNumber)
+	{
+		return courses.get(courseNumber);
+	}
 	
+    public ArrayList<String> getErrors()
+	{
+		return errors;
+	}
+	
+    // Methods
+
+    public void addFilter(IFilter filter)
+    {
+        filters.add(filter);
+    }
+
+	public void addError(String err)
+	{
+		errors.add(new String(err));
+	}
+
+	public void clearErrors()
+	{
+		errors.clear();
+	}
+
+	public void addCourse(Course course)
+	{
+		courses.put(course.getNumber(), course);
+	}
+
     public void linkPrereqs(Course course, List<String> prereqNumbers)
 	{
 		for(String number : prereqNumbers)
 		{
 			Course prereq = getCourse(number);
-			course.addPrereq(prereq);	
+            if (prereq != null)
+            {
+    			course.addPrereq(prereq);
+            }
 		}
 	}
+
+    public void computeScores()
+    {
+        ArrayList<Course> courses = getAllCourses();
+        for(Course course : courses)
+        {
+            float score = 1.0f;
+            for(IFilter filter : filters)
+            {
+                score = filter.processScore(course, score);
+            }
+            course.setScore = score;
+        }
+    }
+
+    // Serialisation
     
-    public List<Course> loadCoursesFromCSV()
+    private List<Course> loadCoursesFromCSV()
     {
         try
         {
@@ -115,19 +120,17 @@ public class MainModel
             while( (line = br.readLine()) != null )
             {
                 // Skip lines with a leading '#' or only whitespace
-                if ( line.trim().charAt(0) == '#' || line.trim().equals("") )
+                if ( line.trim().equals("") || line.trim().charAt(0) == '#')
                 {
                     continue;
                 }
-
                 // new Course from comma seperated values
                 String[] result = line.split(CSV_ATTR_SEPARATOR);
                 Course course = new Course( result[0],
                                             result[1],
-                                            new Float(result[2]).floatValue(),
+                                            new Double(result[2]).doubleValue(),
                                             Course.asGroup(result[3]),
                                             Arrays.asList(result[5].split(CSV_LIST_SEPARATOR)) );
-
                 // Assign available semesters
                 String[] strSemesters = result[4].split(CSV_LIST_SEPARATOR);
                 int[] intSemesters = new int[4];
@@ -148,7 +151,7 @@ public class MainModel
         return null;
     }
     
-    public List<CourseEntry> loadPrereqsFromCSV()
+    private List<CourseEntry> loadPrereqsFromCSV()
     {
         try
         {
@@ -158,7 +161,7 @@ public class MainModel
             while( (line = br.readLine()) != null )
             {
                 // Skip lines with a leading '#' or only whitespace
-                if ( line.trim().charAt(0) == '#' || line.trim().equals("") )
+                if ( line.trim().equals("") || line.trim().charAt(0) == '#' )
                 {
                     continue;
                 }
@@ -166,7 +169,12 @@ public class MainModel
                 // new CourseEntry from comma seperated values
                 String[] result = line.split(CSV_ATTR_SEPARATOR);
                 Course course = getCourse(result[0]);
-                List<String> prereqs = new ArrayList<String>( Arrays.asList( result[6].split(CSV_LIST_SEPARATOR) ) );
+                List<String> prereqs = new ArrayList<String>();
+                if (result.length == 7)
+                {
+                    prereqs = new ArrayList<String>( Arrays.asList( result[6].split(CSV_LIST_SEPARATOR) ) );
+                }
+
                 CourseEntry entry = new CourseEntry();
                 entry.course = course;
                 entry.prereqs = prereqs;
@@ -181,7 +189,46 @@ public class MainModel
         }
         return null;
     }
-
+    
+    private StudentRecord loadStudentRecordFromCSV(String filename)
+    {
+        try
+        {
+            StudentRecord record = null;
+            String line = null;
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"));
+            while( (line = br.readLine()) != null )
+            {
+                // Skip lines with a leading '#' or only whitespace
+                if ( line.trim().equals("") || line.trim().charAt(0) == '#')
+                {
+                    continue;
+                } // new StudentRecord from first line
+                else if (record == null)
+                {
+                    String[] result = line.split(CSV_ATTR_SEPARATOR);
+                    record = new StudentRecord( result[0],
+                                                new Long(result[1]).longValue(),
+                                                StudentRecord.asOption(result[2]),
+                                                new Double(result[3]).doubleValue(),
+                                                new Double(result[4]).doubleValue() );
+                } // Assign Course
+                else
+                {
+                    String[] result = line.split(CSV_ATTR_SEPARATOR);
+                    record.addCourseTaken( getCourse(result[0]), (result[1]) );
+                }
+            }
+            br.close();
+            return record;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
     public void loadCourses()
     {
         List<Course> courses = loadCoursesFromCSV();
@@ -194,5 +241,20 @@ public class MainModel
         {
 	        linkPrereqs(entry.course, entry.prereqs);
         }
+    }
+
+    public void loadStudentRecord(long id)
+    {
+        record = loadStudentRecordFromCSV(id + ".csv");
+    }
+    
+    // Driver
+
+    public static void main(String[] args)
+    {
+        MainModel mm = new MainModel();
+        mm.loadStudentRecord(9614729L);
+        System.out.println(mm.getCourse("COMP 228").getPrereqs().get(0).getNumber());
+        System.out.println(mm.getRecord().getName());
     }
 }

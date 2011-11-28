@@ -1,9 +1,13 @@
+# TODO: Figure out how to deal with duplicates to implement other options that computer games
+# [0]           [1]         [2]           [3]        [4]             [5]                   [6]
 # String number,String name,float credits,Enum Group,int[] semesters,List<String> keywords,List<String> prereqs
 
 # COMP_CORE
-COMP 228,System Hardware,3.00,COMP_CORE,2:4,hardware:architecture:assembly:network:logic,COMP 248
-COMP 233,Probability and Statistics for Computer Science,3.00,COMP_CORE,1:2:4,probability:estimation:moments:distributions,COMP 232
-COMP 249,Object-Oriented Programming II,3.00,COMP_CORE,1:2:4,classes:handling:recursion:interfaces:collections,COMP 232:COMP 248
+COMP 228,System Hardware,3.00,COMP_CORE,2:4,hardware:architecture:network:logic,COMP 248
+COMP 232,Mathematics for Computer Science,3.00,COMP_CORE,2:4,mathematics:logic,
+COMP 233,Probability and Statistics for Computer Science,3.00,COMP_CORE,1:2:4,probability,COMP 232
+COMP 248,Object-Oriented Programming I,3.00,COMP_CORE,2:4,programming:languages,
+COMP 249,Object-Oriented Programming II,3.00,COMP_CORE,1:2:4,programming:languages,COMP 232:COMP 248
 COMP 335,Introduction to Theoretical Computer Science,3.00,COMP_CORE,1:2:4,languages:automata:context-free:machines:lemmas,COMP 232:COMP 249
 COMP 346,Operating Systems,4.00,COMP_CORE,1:2:4,processes:synchronization:concurrency:management:recovery,COMP 228:COMP 352
 COMP 348,Principles of Programming Languages,3.00,COMP_CORE,1:2:4,logic:paradigms:type-systems:models:design,COMP 249
@@ -11,25 +15,27 @@ COMP 352,Data Structures and Algorithms,3.00,COMP_CORE,1:2:4,algorithms:design:s
 COMP 354,Introduction to Software Engineering,4.00,COMP_CORE,1:2:4,software:design:management:analysis:traceability:verification,COMP 352:ENCS 282
 
 # ENCS_CORE
-ENCS 282,Technical Writing and Communication,3.00,ENCS_CORE,1:2:4,writing:formats:speaking:communication,0
+ENCS 282,Technical Writing and Communication,3.00,ENCS_CORE,1:2:4,writing:formats:speaking:communication,
 ENCS 393,Social and Ethical Dimensions of Information and Communication Technologies,3.00,ENCS_CORE,2:4,writing:formats:speaking:communication,ENCS 282
 
 #MATH_ELEC
 COMP 339,Combinatorics,3.00,MATH_ELEC,4,counting:combinations:funstions:graphs:numbers:theory,COMP 232
 COMP 361,Elementary Numerical Methods,3.00,MATH_ELEC,2:4,matrics:methods:systems:analysis:equations:approximations,COMP 232:COMP 249
 COMP 367,Techniques in Symbolic Computation,3.00,MATH_ELEC,4,mathematics:theory:coding:computation:algebra:symbolic,COMP 232:COMP 248
-ENGR 213,Applied Ordinary Differential Equations,3.00,MATH_ELEC,1:2:4,mathematics:equations:formulas:graphs:theory,0
+ENGR 213,Applied Ordinary Differential Equations,3.00,MATH_ELEC,1:2:4,mathematics:equations:formulas:graphs:theory,
 ENGR 233,Applied Advanced Calculus,3.00,MATH_ELEC,1:2:4,mathematics:equations:formulas:graphs:theory:calculus,ENGR 213
-ENGR 233,Applied Advanced Calculus,3.00,MATH_ELEC,1:2:4,mathematics:equations:formulas:graphs:theory:calculus,ENGR 213
-MAST 218,Multivariable Calculus I,3.00,MATH_ELEC,2:4,mathematics:equations:formulas:variables:theory:calculus,0
+MAST 218,Multivariable Calculus I,3.00,MATH_ELEC,2:4,mathematics:equations:formulas:variables:theory:calculus,
 MAST 219,Multivariable Calculus II,3.00,MATH_ELEC,4,mathematics:equations:formulas:graphs:theory:calculus,MAST 218
-MAST 234,Linear Algebra and Applications I,3.00,MATH_ELEC,2:4,mathematics:equations:formulas:graphs:algebra,0
+MAST 224,Introduction to Optimization,3.00,MATH_ELEC,4,mathematics:optimization,
+MAST 234,Linear Algebra and Applications I,3.00,MATH_ELEC,2:4,mathematics:equations:formulas:graphs:algebra,
 MAST 235,Linear Algebra and Applications II,3.00,MATH_ELEC,2:4,mathematics:equations:formulas:graphs:algebra,MAST 234
 MAST 332,Techniques in Symbolic Computation,3.00,MATH_ELEC,4,mathematics:equations:formulas:graphs:symbols,COMP 238
 MAST 334,Numerical Analysis,3.00,MATH_ELEC,2,mathematics:equations:formulas:graphs:theory:analysis,ENGR 213
+MATH 339,Combinatorics,3.00,MATH_ELEC,2,mathematics:combinatorics,
+MATH 392,Elementary Number Theory,3.00,MATH_ELEC,2,mathematics:number theory,
 
 # GAMES_ELEC
-COMP 345,Advanced Program Design with C++,3.00,GAMES_ELEC,2:4,programming:design:c++::functions:templates,COMP 352
+COMP 345,Advanced Program Design with C++,3.00,GAMES_ELEC,2:4,programming:design:c++:functions:templates,COMP 352
 COMP 353,Databases,4.00,GAMES_ELEC,1:2:4,database:design:sql:modeling:querying:data,COMP 352
 COMP 371,Computer Graphics,4.00,GAMES_ELEC,1:2:4,graphics:modeling:architecture:mathematics:hardware:animation,COMP 244:COMP 352
 COMP 376,Introduction to Game Development,4.00,GAMES_ELEC,1:2,graphics:modeling:architecture:gaming:animation:design,COMP 371
@@ -38,6 +44,7 @@ COMP 476,Advanced Game Development,4.00,GAMES_ELEC,2:4,gaming:modeling:managemen
 COMP 477,Animation for Computer Games,4.00,GAMES_ELEC,2:4,gaming:modeling:management:animation:algorithms:design,COMP 361:COMP 376
 
 # WEB_ELEC
+# COMP 353
 COMP 445,Data Communication and Computer Networks,4.00,WEB_ELEC,2:4,protocols:networks:internet:data:addressing,COMP 346
 COMP 479,Information Retrieval and Web Search,4.00,WEB_ELEC,2,information:retrieval:models:files:xml:systems:web,COMP 233:COMP 352
 SOEN 287,Web Programming,3.00,WEB_ELEC,1:2:4,servers:languages:programming:web:scripts:protocols,COMP 248
@@ -47,42 +54,67 @@ SOEN 487,Web Services and Applications,4.00,WEB_ELEC,4,web:design:architecture:t
 
 # CSYS_ELEC
 COMP 326,Computer Architecture,3.00,CSYS_ELEC,4,concerrency:data-flow:control-flow:processors:networks:protocols:scheduling:performance,COMP 346
+# COMP 345
 COMP 426,Multicore Programming,4.00,CSYS_ELEC,4,programming:models:algorithms:multicore:memory:data,COMP 346
 COMP 428,Parallel Programming,4.00,CSYS_ELEC,4,programming:architecture:communications:models:algorithms:message-passing,COMP 346
 SOEN 422,Embedded Systems and Software,3.00,CSYS_ELEC,2,programming:embedded:systems:architecture:memory:real-time:debugging,COMP 346
+# SOEN 423
 
 # SSYS_ELEC
+# COMP 326
+# COMP 353
+# COMP 361
+# COMP 445
 COMP 465,Design and Analysis of Algorithms,4.00,SSYS_ELEC,4,statistics:algorithms:graphs:theory:survery:analysis,COMP 335:COMP 352
-# plus first 3 from above
 
 # ISYS_ELEC
-ACCO 220,Financial and Managerial Accounting,3.00,ISYS_ELEC,4,accounting:finance:calculations:data,0      
+ACCO 220,Financial and Managerial Accounting,3.00,ISYS_ELEC,4,accounting:finance:calculations:data,
 COMM 210,Contemporary Business Thinking,3.00,ISYS_ELEC,1:2:4,business:management:theory:thinking,COMM 212
-COMM 222,Organizational Behaviour and Theory,3.00,ISYS_ELEC,business:management:theory:thinking,COMM 210:COMM 215
-COMM 224,Marketing Management,3.00,ISYS_ELEC,business:management:theory:thinking:marketing,
+COMM 222,Organizational Behaviour and Theory,3.00,ISYS_ELEC,1,business:management:theory:thinking,COMM 210:COMM 215
+COMM 224,Marketing Management,3.00,ISYS_ELEC,2,business:management:theory:thinking:marketing,
 COMM 225,Production and Operations Management,3.00,ISYS_ELEC,1:2:4,business:management:management:production,COMM 210:COMM 212:COMM 215
-COMM 308,Introduction to Finance,3.00,ISYS_ELEC,1:2:4,business:management:theory:finance, COMM 217
-COMP 353,Databases,4.00,ISYS_ELEC,1:2:4,database:design:sql:modeling:querying:data,COMP 352
+COMM 308,Introduction to Finance,3.00,ISYS_ELEC,1:2:4,business:management:theory:finance,COMM 217
+# COMP 353,Databases,4.00,ISYS_ELEC,1:2:4,database:design:sql:modeling:querying:data,COMP 352
 DESC 361,Management Science Models for Operations Management,3.00,ISYS_ELEC,2:4,models:management:operations,COMM 225
 DESC 372,Supply Chain Planning and Control,3.00,ISYS_ELEC,2:4,planning:control:operations,DESC 361
 DESC 387,E-Business Systems,3.00,ISYS_ELEC,2:4,systems:e-business:management:operations,COMM 226
+DESC 389,Information Systems Integration,3.00,ISYS_ELEC,2:4,business:management,COMM 225
 DESC 445,Statistical Software for Data Management and Analysis,3.00,ISYS_ELEC,2,statistics:software:data,COMM 215
-ECON 201,Introduction to Microeconomics,3.00,ISYS_ELEC,1:2:4,economics:introduction:calculations,0
+DESC 489,Electronic Business Implementation,3.00,ISYS_ELEC,4,business:e-commerce:finance,DESC 387:DESC 395:DESC 388:DESC 382:DESC 481
+ECON 201,Introduction to Microeconomics,3.00,ISYS_ELEC,1:2:4,economics:introduction:calculations,
 
-GEN_ELEC
-BIOL 206,Elementary Genetics,3.00,GEN_ELEC,4,economics:introduction:elementary:genetics,0
-BIOL 208,Environmental Biology,3.00,GEN_ELEC,2,environment:biology,0
-BIOL 226,Biodiversity and Ecology,3.00,GEN_ELEC,2:4,biodiversity:ecology,0
-BIOL 261,Molecular and General Genetics,3.00,GEN_ELEC,2:4,molecular:genetics,0
-CHEM 209,Discovering Biotechnology,3.00,GEN_ELEC,4,biotechnology:chemistry,0
+# ART_ELEC & A bunch of art classes, This would take a lot of time to implement
+# COMP 345
+# COMP 371
+
+# MATH_ELEC - This is not implemented
+# COMP 361  Elementary Numerical Methods*   3.00
+# COMP 367  Techniques in Symbolic Computation**    3.00
+# COMP 465  Design and Analysis of Algorithms   3.00
+# MAST 218  Multivariable Calculus I    3.00
+# MAST 219  Multivariable Calculus II   3.00
+# MAST 224  Introduction to Optimization    3.00
+# MAST 232  Mathematics with Computer Algebra   3.00
+# MAST 234  Linear Algebra and Applications I   3.00
+# MAST 235  Linear Algebra and Applications II  3.00
+# MAST 331  Mathematical Modelling  3.00
+# MAST 333  Applied Statistics  3.00
+# MATH 339  Combinatorics   3.00
+
+# GEN_ELEC
+BIOL 206,Elementary Genetics,3.00,GEN_ELEC,4,economics:introduction:elementary:genetics,
+BIOL 208,Environmental Biology,3.00,GEN_ELEC,2,environment:biology,
+BIOL 226,Biodiversity and Ecology,3.00,GEN_ELEC,2:4,biodiversity:ecology,
+BIOL 261,Molecular and General Genetics,3.00,GEN_ELEC,2:4,molecular:genetics,
+CHEM 209,Discovering Biotechnology,3.00,GEN_ELEC,4,biotechnology:chemistry,
 CHEM 217,Introductory Analytical Chemistry I,3.00,GEN_ELEC,2,introdution:chemisty:analysis,CHEM 205:CHEM 206
 CHEM 221,Introductory Organic Chemistry I,3.00,GEN_ELEC,2:4,organic:chemistry:introduction,CHEM 205:CHEM 206
 CHEM 234,Physical Chemistry I: Thermodynamics,3.00,GEN_ELEC,2:4,chemistry:thermodynamics,CHEM 205:CHEM 206:PHYS 204:PHYS 205
-GEOL 206,Earthquakes, Drifting Continents and Volcanoes,3.00,GEN_ELEC,1,earthquakes,drifting:continents:volcanoes,0
-GEOL 208,The Earth, Moon and the Planets,3.00,GEN_ELEC,2,earth:moon:planets,0
+GEOL 206,Earthquakes Drifting Continents and Volcanoes,3.00,GEN_ELEC,1,earthquakes:drifting:continents:volcanoes,
+GEOL 208,The Earth Moon and the Planets,3.00,GEN_ELEC,2,earth:moon:planets,
 PHYS 252,Optics,3.00,GEN_ELEC,4,physics:optics:mathematics,PHYS 206
 PHYS 253,Electricity and Magnetism I,3.00,GEN_ELEC,2,electricity:magnetism:calculations:graphs,PHYS 205:MAST 218
-PHYS 334,Thermodynamics,3.00,GEN_ELEC,2,thermodynamics,calculations,physics,PHYS 204:MAST 218:MAST 219
+PHYS 334,Thermodynamics,3.00,GEN_ELEC,2,thermodynamics:calculations:physics,PHYS 204:MAST 218:MAST 219
 PHYS 354,Electricity and Magnetism II,3.00,GEN_ELEC,4,electricity:magnetism:calculations:graphs,PHYS 253:MAST 219
 COMP 442,Compiler Design,4.00,GEN_ELEC,4,compiler:parsing:optimization:run-time:organization,COMP 228:COMP 335:COMP352
 COMP 451,Database Design,4.00,GEN_ELEC,4,buffer:parsing:optimization:querying:recovery:organization,COMP 353
@@ -93,4 +125,3 @@ COMP 229,System Software,3.00,GEN_ELEC,2,hardware:software:interface:assemblers:
 COMP 239,Mathematics for Computer Science II,3.00,GEN_ELEC,2,combinations:mathematics:relations:graphs:trees,COMP 232
 COMP 318,Introduction to Database Applications,4.00,GEN_ELEC,4,database:querying:models:structure,COMP 218
 COMP 327,Digital System Design,4.00,GEN_ELEC,4,design:digital:systems:boolean:circuits:devics,COMP 228
-
