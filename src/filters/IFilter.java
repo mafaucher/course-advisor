@@ -4,5 +4,5 @@ import main.Course;
 
 public interface IFilter 
 {
-	public float ProcessScore(Course course, float score);
+	public float processScore(Course course, float score);
 }

@@ -8,12 +8,10 @@ import panels.*;
 
 public class MainFrame extends JFrame
 {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private static MainFrame frame;
 	private static MainModel model;
+
 	private MainFrame(String name)
 	{
 		super(name);
@@ -27,9 +25,17 @@ public class MainFrame extends JFrame
 	}
 	public static MainModel getModel()
 	{
+		return frame;
+	}
+
+	public static MainModel getModel()
+	{
 		return model;
 	}
-	public void setPanel(ViewPanel panel)
+
+    // Methods
+	
+    public void setPanel(ViewPanel panel)
 	{
 		Container content=getContentPane();
 		content.removeAll();
@@ -38,10 +44,9 @@ public class MainFrame extends JFrame
 		content.validate();
 		this.repaint();
 	}
-	public static MainFrame getFrame()
-	{
-		return frame;
-	}
+
+    // Main program
+
 	public static void main(String[] args)
 	{
 		new MainFrame("Some Expert System");
