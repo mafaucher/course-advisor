@@ -8,7 +8,7 @@ public class Controller
 	{
 		return MainFrame.getModel().getRecord();
 	}
-	public static float suggestNumberOfCredits()
+	public static double suggestNumberOfCredits()
 	{
 		//StudentRecord record=getRecord();
 		return 15;
