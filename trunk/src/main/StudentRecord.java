@@ -41,8 +41,6 @@ public class StudentRecord
     private CourseRequirements requirements;
 	private double gpa, lastAnnualGpa;
 	private List<Course> courses, coursesTaken;
-	//dynamic data pertinent to the program's functionality
-	private double suggestedCredits;
 
 	public StudentRecord(String name, long id, Option option, double gpa, double lastAnnualGpa)
 	{
@@ -62,11 +60,6 @@ public class StudentRecord
     }
 
     // Setters
-    
-	public void setSuggestedCredits(double credits)
-	{
-		suggestedCredits = credits;
-	}
     
     // Getters
 
@@ -107,7 +100,11 @@ public class StudentRecord
 	
     public double getSuggestedCredits()
 	{
-		return suggestedCredits;
+    	if (gpa > 3.0)
+    		return 15.0;
+    	else if (gpa > 2.0)
+    		return 12.0;
+    	return 9.0;
 	}
 
     // Methods

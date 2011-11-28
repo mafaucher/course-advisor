@@ -23,7 +23,10 @@ public class MainFrame extends JFrame
 		setPanel(new LoginPanel());
 		setVisible(true);
 	}
-	public static MainModel getModel()
+	
+	// Getters
+	
+	public static MainFrame getFrame()
 	{
 		return frame;
 	}

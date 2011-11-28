@@ -14,7 +14,7 @@ public class DetailPanel extends ViewPanel
 	private JLabel textLabel;
 	public DetailPanel(String text)
 	{
-		textLabel=new JLabel("WTF");
+		textLabel=new JLabel("Details");
 		add(new JScrollPane(textLabel));
 		setText("Details:<br>"+text);
 	}
