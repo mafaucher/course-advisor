@@ -32,7 +32,7 @@ public class Course
     private String number;
 	private String name;
 	private double credits;
-    private Group group;
+    private List<Group> groups;
 	private List<Course> prereqs;
     private boolean[] semesters; // [0]=Summer; [1]=Fall; [2]=Fall/Winter; [3]=Winter
 	private List<String> keywords;
@@ -52,12 +52,12 @@ public class Course
         score = 0.0;
 	}
     
-    public Course(String number, String name, double credits, Group group, List<String> keywords)
+    public Course(String number, String name, double credits, List<String> keywords)
     {
         this.number = new String(number);
         this.name = new String(name);
         this.credits = credits;
-        this.group = group;
+        this.groups = new ArrayList<Group>();
         this.semesters = new boolean[4];
         this.keywords = new ArrayList<String>(keywords);
         this.prereqs = new ArrayList<Course>();
@@ -65,13 +65,13 @@ public class Course
         score = 0.0;
     }
     
-    public Course(String number, String name, double credits, Group group,
-                  boolean[] semesters, List<String> keywords)
+    public Course(String number, String name, double credits,
+            boolean[] semesters, List<String> keywords)
     {
         this.number = new String(number);
         this.name = new String(name);
         this.credits = credits;
-        this.group = group;
+        this.groups = new ArrayList<Group>();
         this.setSemesters(semesters);
         this.keywords = new ArrayList<String>(keywords);
         this.prereqs = new ArrayList<Course>();
@@ -84,7 +84,7 @@ public class Course
         this.name = course.getName();
         this.number = course.getNumber();
         this.credits = course.getCredits();
-        this.group = course.getGroup();
+        this.groups = course.getGroups();
         this.setSemesters(course.getSemesters());
         this.keywords = course.getKeywords();
         this.prereqs = course.getPrereqs();
@@ -108,11 +108,6 @@ public class Course
 	{
 		this.credits = credits;
 	}
-
-    public void setGroup(Group group)
-    {
-        this.group = group;
-    }
 
     public void setSemesters(boolean[] semesters)
     {
@@ -182,9 +177,9 @@ public class Course
 		return credits;
 	}
     
-    public Group getGroup()
+    public List<Group> getGroups()
     {
-        return group;
+        return groups;
     }
     
     public boolean[] getSemesters()
@@ -221,7 +216,7 @@ public class Course
 
 	public boolean wasTaken()
 	{
-		return grade>=0.0;
+		return grade >= 0.0;
 	}
 
 	public void addPrereq(Course course)
@@ -229,4 +224,8 @@ public class Course
 		prereqs.add(course);
 	}
 
+	public void addGroup(Group group)
+	{
+	    groups.add(group);
+	}
 }

@@ -34,7 +34,6 @@ public class StudentRecord
         return result;
     }
 
-
 	private String name;
 	private long id;
     private Option option;
@@ -124,8 +123,18 @@ public class StudentRecord
     {
         addCourseTaken(course, letterGradeToDouble(grade));
     }
+    
+    public boolean isRegistered(Course course)
+    {
+        for (Course registered : courses)
+        {
+            if (course == registered)
+                return true;
+        }
+        return false;
+    }
 
-    private double letterGradeToDouble(String grade)
+    private static double letterGradeToDouble(String grade)
     {
         if (grade.equals("A+")) return 4.3;
         if (grade.equals("A"))  return 4.0;

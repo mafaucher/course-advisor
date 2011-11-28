@@ -52,6 +52,6 @@ public class MainFrame extends JFrame
 
 	public static void main(String[] args)
 	{
-		new MainFrame("Some Expert System");
+		new MainFrame("Student Advisor Expert System");
 	}
 }

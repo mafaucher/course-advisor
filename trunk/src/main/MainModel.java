@@ -124,13 +124,18 @@ public class MainModel
                 {
                     continue;
                 }
-                // new Course from comma seperated values
+                // new Course from comma separated values
                 String[] result = line.split(CSV_ATTR_SEPARATOR);
                 Course course = new Course( result[0],
                                             result[1],
                                             new Double(result[2]).doubleValue(),
-                                            Course.asGroup(result[3]),
                                             Arrays.asList(result[5].split(CSV_LIST_SEPARATOR)) );
+                // Assign groups
+                String[] groups = result[3].split(CSV_LIST_SEPARATOR);
+                for (int i = 0; i < groups.length; i++)
+                {
+                    course.addGroup(Course.asGroup(groups[i]));
+                }
                 // Assign available semesters
                 String[] strSemesters = result[4].split(CSV_LIST_SEPARATOR);
                 int[] intSemesters = new int[4];
