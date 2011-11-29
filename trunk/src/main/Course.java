@@ -7,7 +7,7 @@ public class Course
 {
     public enum Group
     {
-        COMP_CORE, ENCS_CORE, COMP_ELEC, MATH_ELEC, GEN_ELEC, NONE
+        COMP_CORE, ENCS_CORE, COMP_ELEC, MATH_ELEC, GEN_ELEC, NONE,
         GAME_ELEC, WEB_ELEC, CSYS_ELEC, SSYS_ELEC, ISYS_ELEC, ART_ELEC, STAT_ELEC
     }
     
@@ -33,23 +33,22 @@ public class Course
     {
         switch (option)
         {
-            case StudentRecord.Option.GAME:
+            case GAME:
                 return Group.GAME_ELEC;
-            case StudentRecord.Option.WEB:
+            case WEB:
                 return Group.WEB_ELEC;
-            case StudentRecord.Option.CSYS:
+            case CSYS:
                 return Group.CSYS_ELEC;
-            case StudentRecord.Option.SSYS:
+            case SSYS:
                 return Group.SSYS_ELEC;
-            case StudentRecord.Option.ISYS:
+            case ISYS:
                 return Group.ISYS_ELEC;
-            case StudentRecord.Option.ART:
+            case ART:
                 return Group.ART_ELEC;
-            case StudentRecord.Option.STAT:
+            case STAT:
                 return Group.STAT_ELEC;
-            case default:
-                return Group.NONE;
         }
+        return Group.NONE;
     }
 
     private String number;
@@ -146,21 +145,7 @@ public class Course
         this.semesters = new boolean[4];
         for (int i = 0; i < semesters.length; i++)
         {
-            switch (semesters[i])
-            {
-                case 1:
-                    this.semesters[0] = true;
-                    break;
-                case 2:
-                    this.semesters[1] = true;
-                    break;
-                case 3:
-                    this.semesters[2] = true;
-                    break;
-                case 4:
-                    this.semesters[3] = true;
-                    break;
-            }
+            this.semesters[semesters[i]-1] = true;
         }
     }
 
@@ -207,11 +192,6 @@ public class Course
     
     public boolean[] getSemesters()
     {
-        semesters = new boolean[4];
-        for (int i = 0; i < semesters.length; i++)
-        {
-            semesters[i] = this.semesters[i];
-        }
         return semesters;
     }
     
@@ -251,4 +231,22 @@ public class Course
 	{
 	    groups.add(group);
 	}
+	   
+    public String type()
+    {
+        return getNumber().substring(0, 4);
+    }
+    
+    public int level()
+    {
+        try
+        {
+            return ( Integer.valueOf(getNumber().charAt(5)) - 48 );
+        }
+        catch (NumberFormatException e)
+        {
+            System.out.println(e);
+        }
+        return 0;
+    }
 }

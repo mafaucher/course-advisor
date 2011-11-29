@@ -11,7 +11,7 @@ public class PrereqFilter implements IFilter {
 
 	@Override
 	public double processScore(Course course, double score) {
-        if course.wasTaken()
+        if (course.wasTaken())
             return 0;
 	    for (Course prereq : course.getPrereqs())
 	    {

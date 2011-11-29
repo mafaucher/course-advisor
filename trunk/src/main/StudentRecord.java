@@ -10,14 +10,14 @@ public class StudentRecord
         GAME, WEB, CSYS, SSYS, ISYS, CAPP, ART, STAT, NONE
     }
 
-    private class CourseRequirements
+    public class CourseRequirements
     {
-        private double compCore = 32.00;
-        private double encsCore =  6.00;
-        private double mathElec =  6.00;
-        private double genElec  = 15.00;
-        private double specialElec;
-        private double compElec;
+        public double compCore = 32.00;
+        public double encsCore =  6.00;
+        public double mathElec =  6.00;
+        public double genElec  = 15.00;
+        public double specialElec;
+        public double compElec;
     }
 
     public static Option asOption(String option)
@@ -37,7 +37,7 @@ public class StudentRecord
 	private String name;
 	private long id;
     private Option option;
-    private CourseRequirements requirements;
+    public CourseRequirements requirements;
 	private double gpa, lastAnnualGpa;
 	private List<Course> courses, coursesTaken;
 

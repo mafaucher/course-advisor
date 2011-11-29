@@ -1,6 +1,7 @@
 package filters;
 
 import main.Course;
+import main.MainFrame;
 
 public class PreferenceFilter implements IFilter {
 

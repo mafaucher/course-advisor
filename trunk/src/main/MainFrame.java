@@ -5,6 +5,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import panels.*;
+import filters.*;
 
 public class MainFrame extends JFrame
 {
@@ -23,7 +24,12 @@ public class MainFrame extends JFrame
 		setPanel(new LoginPanel());
 		setVisible(true);
 	}
-	
+	/*// Temp method to test filters
+	private MainFrame(String id)
+	{
+	    model = new MainModel();
+	}
+	*/
 	// Getters
 	
 	public static MainFrame getFrame()
@@ -53,5 +59,19 @@ public class MainFrame extends JFrame
 	public static void main(String[] args)
 	{
 		new MainFrame("Student Advisor Expert System");
+	    model.loadStudentRecord(9999999L);
+        model.addFilter(new PrereqFilter());
+        model.addFilter(new SemesterFilter());
+        model.addFilter(new LevelFilter());
+        model.addFilter(new CreditFilter());
+	    model.computeScores();
+	    for(Course course : model.getAllCourses())
+        {
+	        if (course.getScore() > 0)
+	        {
+	            System.out.println(course.getNumber());
+	        }
+        }
+	    System.out.println("Done");
 	}
 }
