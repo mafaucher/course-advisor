@@ -7,13 +7,13 @@ public class Course
 {
     public enum Group
     {
-        COMP_CORE, ENCS_CORE, COMP_ELEC, MATH_ELEC, GEN_ELEC,
+        COMP_CORE, ENCS_CORE, COMP_ELEC, MATH_ELEC, GEN_ELEC, NONE
         GAME_ELEC, WEB_ELEC, CSYS_ELEC, SSYS_ELEC, ISYS_ELEC, ART_ELEC, STAT_ELEC
     }
     
     public static Group asGroup(String group)
     {
-        Group result = Group.GEN_ELEC;
+        Group result = Group.NONE;
         if (group.equals("COMP_CORE")) result = Group.COMP_CORE;
         if (group.equals("ENCS_CORE")) result = Group.ENCS_CORE;
         if (group.equals("COMP_ELEC")) result = Group.COMP_ELEC;
@@ -27,6 +27,29 @@ public class Course
         if (group.equals("ART_ELEC"))  result = Group.ART_ELEC;
         if (group.equals("STAT_ELEC")) result = Group.STAT_ELEC;
         return result;
+    }
+
+    public static Group asGroup(StudentRecord.Option option)
+    {
+        switch (option)
+        {
+            case StudentRecord.Option.GAME:
+                return Group.GAME_ELEC;
+            case StudentRecord.Option.WEB:
+                return Group.WEB_ELEC;
+            case StudentRecord.Option.CSYS:
+                return Group.CSYS_ELEC;
+            case StudentRecord.Option.SSYS:
+                return Group.SSYS_ELEC;
+            case StudentRecord.Option.ISYS:
+                return Group.ISYS_ELEC;
+            case StudentRecord.Option.ART:
+                return Group.ART_ELEC;
+            case StudentRecord.Option.STAT:
+                return Group.STAT_ELEC;
+            case default:
+                return Group.NONE;
+        }
     }
 
     private String number;
