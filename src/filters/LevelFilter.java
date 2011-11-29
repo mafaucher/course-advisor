@@ -11,14 +11,14 @@ public class LevelFilter implements IFilter {
 
 	@Override
 	public double processScore(Course course, double score) {
-	    switch (level(course))
+	    switch (course.level())
 	    {
 	    case 1:
 	    case 2:
 	    case 3:
 	        return score;
 	    case 4:
-	        return (testQualification(course) ? score : 0.0);
+	        return ( testQualification(course) ? score : 0.0 );
 	    case 0:
 	    default:
 	        return 0.0;
@@ -26,38 +26,17 @@ public class LevelFilter implements IFilter {
 	    }
 	}
 	
-	// Check if student has taken all 200 level courses for the same type (COMP, MAST...)
+	// Check if student has taken all 200 level core COMP courses
 	private boolean testQualification(Course testedCourse)
 	{
 	    for (Course course : MainFrame.getModel().getAllCourses())
 	    {
-	        // Check if this course is necessary
-	        if (type(course).equals(type(testedCourse)) && level(course) == 2)
+	        if ( course.level() == 2 && !course.wasTaken()
+	                && MainFrame.getModel().dominantGroup(course.getGroups()).equals(Course.Group.COMP_CORE) )
 	        {
-	            if (!course.wasTaken())
-	                return false;
+                return false;
 	        }
 	    }
 	    return true;
 	}
-	
-    public String type(Course course)
-    {
-        return course.getNumber().substring(0, 4);
-    }
-    
-    // TODO: Proper error system
-    public int level(Course course)
-    {
-        try
-        {
-            return (Integer.valueOf(course.getNumber().charAt(5)));
-        }
-        catch (NumberFormatException e)
-        {
-            System.out.println(e);
-        }
-        return 0;
-    }
-	
 }

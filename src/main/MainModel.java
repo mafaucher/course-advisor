@@ -77,6 +77,25 @@ public class MainModel
 		errors.clear();
 	}
 
+    // Return the Group which corresponds to the studentRecord option
+    public Course.Group dominantGroup(List<Course.Group> groups)
+    {
+        if (groups.size() == 1)
+        {
+            return groups.get(0);
+        }
+        else if (groups.size() > 1)
+        {
+            Course.Group studentGroup = Course.asGroup( MainFrame.getModel().getRecord().getOption() );
+            for (Course.Group group : groups)
+            {
+                if (studentGroup == group)
+                    return group;
+            }
+        }
+        return Course.Group.NONE;
+    }
+	
 	public void addCourse(Course course)
 	{
 		courses.put(course.getNumber(), course);
@@ -138,7 +157,7 @@ public class MainModel
                 }
                 // Assign available semesters
                 String[] strSemesters = result[4].split(CSV_LIST_SEPARATOR);
-                int[] intSemesters = new int[4];
+                int[] intSemesters = new int[strSemesters.length];
                 for (int i = 0; i < strSemesters.length && i < intSemesters.length; i++)
                 {
                     intSemesters[i] = Integer.parseInt(strSemesters[i]);
@@ -208,7 +227,8 @@ public class MainModel
                 if ( line.trim().equals("") || line.trim().charAt(0) == '#')
                 {
                     continue;
-                } // new StudentRecord from first line
+                }
+                // new StudentRecord from first line
                 else if (record == null)
                 {
                     String[] result = line.split(CSV_ATTR_SEPARATOR);
@@ -217,11 +237,15 @@ public class MainModel
                                                 StudentRecord.asOption(result[2]),
                                                 new Double(result[3]).doubleValue(),
                                                 new Double(result[4]).doubleValue() );
-                } // Assign Course
+                }
+                // Assign Course
                 else
                 {
                     String[] result = line.split(CSV_ATTR_SEPARATOR);
-                    record.addCourseTaken( getCourse(result[0]), (result[1]) );
+                    if (result.length > 1)
+                        record.addCourseTaken( getCourse(result[0]), (result[1]) );
+                    else
+                        record.addCourse( getCourse(result[0]) );
                 }
             }
             br.close();
