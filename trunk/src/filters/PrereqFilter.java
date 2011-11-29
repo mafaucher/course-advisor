@@ -4,13 +4,15 @@ import main.Course;
 import main.MainFrame;
 
 /**
- * Binary filter, sets score to 0 if prereqs not satisfied,
- * Returns score if prereqs are satisfied.
+ * Binary filter, returns the score if prereqs are satisfied.
+ * Sets score to 0 if course was taken or prereqs are not satisfied.
  */
 public class PrereqFilter implements IFilter {
 
 	@Override
 	public double processScore(Course course, double score) {
+        if course.wasTaken()
+            return 0;
 	    for (Course prereq : course.getPrereqs())
 	    {
 	        if (!prereq.wasTaken())
