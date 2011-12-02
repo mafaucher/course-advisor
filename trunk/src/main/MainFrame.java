@@ -57,6 +57,15 @@ public class MainFrame extends JFrame
 		content.validate();
 		this.repaint();
     }
+    public static boolean prereqSatisfied(Course prereq)
+    {
+    	if (!prereq.wasTaken())
+    	{
+    		if ( !MainFrame.getModel().getRecord().isRegistered(prereq) )
+    			return false;
+    	}
+    	return true;
+    }
     // Main program
 	public static void main(String[] args)
 	{

@@ -217,6 +217,71 @@ public class Course
 
     // Methods
 
+    public static String groupToString(Group group)
+    {
+    	String result = "";
+    	switch (group)
+        {
+    		case COMP_CORE:
+    			result = "Computer Science Core";
+    			break;
+    		case ENCS_CORE:
+    			result = "Complementary Core";
+    			break;
+    		case COMP_ELEC:
+    			result = "Computer Science Elective";
+    			break;
+    		case MATH_ELEC:
+    			result = "Mathematics Elective";
+    			break;
+    		case GEN_ELEC:
+    			result = "General Elective";
+    			break;
+    		case GAME_ELEC:
+    			result = "Game Dev Elective";
+    			break;
+    		case WEB_ELEC:
+    			result = "Web Elective";
+    			break;
+    		case CSYS_ELEC:
+    			result = "Computer Systems Elective";
+    			break;
+    		case SSYS_ELEC:
+    			result = "Software Systems Elective";
+    			break;
+    		case ISYS_ELEC:
+    			result = "Information Systems Elective";
+    			break;
+    		case ART_ELEC:
+    			result = "Computational Arts Elective";
+    			break;
+    		case STAT_ELEC:
+    			result = "Math/Stats Elective";
+    			break;
+        }
+        return result;	
+    }
+    public String toString()
+    {
+    	String result = "<b>"+number+" - "+name+"</b><br>";
+    	result += "Credis: "+credits+"<br>Semeters:";
+    	for (int i = 0; i < semesters.length; i++)
+    	{
+    		if (semesters[i])
+    			result += " "+(i+1);
+    	}
+    	result += "<br>Keywords: ";
+    	for (String keyword : keywords)
+    	{
+    		result += keyword + ", ";
+    	}
+    	result += "<br>Prerequisites: ";
+    	for (Course prereq: prereqs)
+    	{
+    		result += prereq.getNumber() + ", ";
+    	}
+    	return result;
+    }
 	public boolean wasTaken()
 	{
 		return grade >= 0.0;
