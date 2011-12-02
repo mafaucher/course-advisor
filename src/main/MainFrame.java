@@ -12,7 +12,7 @@ public class MainFrame extends JFrame
 	private static final long serialVersionUID = 1L;
 	private static MainFrame frame;
 	private static MainModel model;
-
+	private ViewPanel mainPanel, detailPanel;
 	private MainFrame(String name)
 	{
 		super(name);
@@ -24,13 +24,6 @@ public class MainFrame extends JFrame
 		setPanel(new LoginPanel());
 		setVisible(true);
 	}
-	/*// Temp method to test filters
-	private MainFrame(String id)
-	{
-	    model = new MainModel();
-	}
-	*/
-	// Getters
 	
 	public static MainFrame getFrame()
 	{
@@ -46,25 +39,32 @@ public class MainFrame extends JFrame
 	
     public void setPanel(ViewPanel panel)
 	{
-		Container content=getContentPane();
+    	mainPanel=panel;
+    	detailPanel=panel.getDetailPanel();
+    	updatePanels();		
+	}
+    public void setDetailPanel(ViewPanel panel)
+    {
+    	detailPanel=panel;
+    	updatePanels();
+    }
+    private void updatePanels()
+    {
+    	Container content=getContentPane();
 		content.removeAll();
-		content.add(panel);
-		content.add(panel.getDetailPanel());
+		content.add(mainPanel);
+		content.add(detailPanel);
 		content.validate();
 		this.repaint();
-	}
-
+    }
     // Main program
-
 	public static void main(String[] args)
 	{
 		new MainFrame("Student Advisor Expert System");
-	    model.loadStudentRecord(9999999L);
         model.addFilter(new PrereqFilter());
-        model.addFilter(new SemesterFilter());
+        //model.addFilter(new SemesterFilter());
         model.addFilter(new LevelFilter());
         model.addFilter(new CreditFilter());
-	    model.computeScores();
 	    for(Course course : model.getAllCourses())
         {
 	        if (course.getScore() > 0)

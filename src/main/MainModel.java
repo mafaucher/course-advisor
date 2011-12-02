@@ -35,7 +35,6 @@ public class MainModel
 	}
 	
     // Getters
-
 	public StudentRecord getRecord()
 	{
 		return record;
@@ -61,7 +60,6 @@ public class MainModel
 	}
 	
     // Methods
-
     public void addFilter(IFilter filter)
     {
         filters.add(filter);
@@ -128,7 +126,6 @@ public class MainModel
     }
 
     // Serialisation
-    
     private List<Course> loadCoursesFromCSV()
     {
         try
@@ -278,7 +275,6 @@ public class MainModel
     }
     
     // Driver
-
     public static void main(String[] args)
     {
         MainModel mm = new MainModel();

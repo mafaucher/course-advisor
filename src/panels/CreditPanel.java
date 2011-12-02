@@ -16,7 +16,7 @@ public class CreditPanel extends ViewPanel
 	public CreditPanel()
 	{
 		suggestedText=new JLabel("Suggested number of credits: ");
-		suggestedCreditsField=new JTextField(Float.toString(Controller.suggestNumberOfCredits()), 3);
+		suggestedCreditsField=new JTextField(Double.toString(Controller.suggestNumberOfCredits()), 3);
 		ActionListener al=new ActionListener()
 		{
 			public void actionPerformed(ActionEvent arg0) 
@@ -69,7 +69,7 @@ public class CreditPanel extends ViewPanel
 	}
 	public DetailPanel getDetailPanel() 
 	{
-		String text="Based on random ass shit that we came up with, we think that u should take "+suggestedCreditsField.getText()+" credits";
+		String text="Based on your gpa, we think that u should take "+suggestedCreditsField.getText()+" credits";
 		return createDetailPanel(text);
 	}
 }

@@ -2,7 +2,6 @@ package filters;
 
 import main.Course;
 import main.MainFrame;
-import java.util.List;
 
 /**
  * Determines what course group the course fits in, and

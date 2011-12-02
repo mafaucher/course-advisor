@@ -15,7 +15,7 @@ public class RecordPanel extends ViewPanel
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JLabel nameLabel, coursesTakenLabel, creditsTakenLabel, gradesTakenLabel, coursesLabel, takenLabel;
+	private JLabel nameLabel, coursesTakenLabel, creditsTakenLabel, gradesTakenLabel, coursesLabel, takenLabel, gpaLabel;
 	private JButton proceedButton;
 	public RecordPanel()
 	{
@@ -58,6 +58,7 @@ public class RecordPanel extends ViewPanel
 		creditsTakenLabel=new JLabel(creditsTakenStr);
 		gradesTakenLabel=new JLabel(gradesTakenStr);
 		takenLabel=new JLabel("Courses Completed:");
+		gpaLabel=new JLabel(Controller.embedHtml("Average GPA: "+Controller.getRecord().getGpa()));
 		ActionListener al=new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e) 
@@ -65,6 +66,8 @@ public class RecordPanel extends ViewPanel
 				MainFrame.getFrame().setPanel(new CreditPanel());
 			}
 		};
+		if(Controller.getRecord().getGpa()<2.0)
+			al=null;
 		proceedButton=createButton("Proceed", al);
 		
 		GroupLayout layout=new GroupLayout(this);
@@ -82,6 +85,7 @@ public class RecordPanel extends ViewPanel
 						      		.addComponent(creditsTakenLabel)
 						      		.addComponent(gradesTakenLabel))
 						      	.addComponent(coursesLabel)
+						      	.addComponent(gpaLabel)
 						      	.addComponent(proceedButton))
 				);
 				layout.setVerticalGroup(
@@ -93,13 +97,17 @@ public class RecordPanel extends ViewPanel
 				      		.addComponent(creditsTakenLabel)
 				      		.addComponent(gradesTakenLabel))
 				      	.addComponent(coursesLabel)
+				      	.addComponent(gpaLabel)
 				      	.addComponent(proceedButton)
 				);
 	}
 	@Override
 	public DetailPanel getDetailPanel() 
 	{
-		String text="This is your student record. Blablabla.";
+		String text;
+		if(Controller.getRecord().getGpa()<2.0)
+			text="Your gpa is lower than 2.0. Gtfo!";
+		else text="You are in good standing.<br>Click on proceed to, well, proceed.";
 		return createDetailPanel(text);
 	}
 }

@@ -1,6 +1,5 @@
 package panels;
 
-import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
@@ -16,9 +15,14 @@ public class LoginPanel extends ViewPanel
 	private JTextField idField; //, passwordField;
 	private JButton loginButton, exitButton;
 
-	public LoginPanel() {
-		ActionListener al = new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+	public LoginPanel() 
+	{
+		ActionListener al = new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent arg0) 
+			{
+				String id=idField.getText();
+				MainFrame.getModel().loadStudentRecord(Long.valueOf(id));
 				MainFrame.getFrame().setPanel(new RecordPanel());
 			}
 		};

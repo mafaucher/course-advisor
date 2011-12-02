@@ -48,7 +48,7 @@ public abstract class ViewPanel extends JPanel
 		str=str.trim();
 		str+="</html></body>";
 	}
-	protected DetailPanel createDetailPanel(String text)
+	public static DetailPanel createDetailPanel(String text)
 	{
 		
 		ArrayList<String> errors=Controller.getErrors();
