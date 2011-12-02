@@ -17,4 +17,17 @@ public class SemesterFilter implements IFilter {
         }
         return 0;
     }
+	@Override
+	public String getName() 
+	{
+		return "Semester Filter";
+	}
+
+	@Override
+	public String getDetails(Course course) 
+	{
+		if (processScore(course, 1.00) == 0)
+			return "This class is not offered this semester.";
+		return null;
+	}
 }

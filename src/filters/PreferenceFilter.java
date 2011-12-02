@@ -10,5 +10,15 @@ public class PreferenceFilter implements IFilter {
 		// TODO Auto-generated method stub
 		return score;
 	}
+	@Override
+	public String getName() 
+	{
+		return "Preference Filter";
+	}
 
+	@Override
+	public String getDetails(Course course) 
+	{
+		return null;
+	}
 }

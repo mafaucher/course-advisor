@@ -39,4 +39,18 @@ public class LevelFilter implements IFilter {
 	    }
 	    return true;
 	}
+
+	@Override
+	public String getName() 
+	{
+		return "Level Filter";
+	}
+
+	@Override
+	public String getDetails(Course course) 
+	{
+		if (processScore(course, 1.00) == 0)
+			return "You need to take all 200 level core computer science courses in order to take a 400 level course.";
+		return null;
+	}
 }

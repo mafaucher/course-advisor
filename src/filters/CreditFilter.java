@@ -12,7 +12,10 @@ import main.MainFrame;
  * No category:          0.0
  */
 public class CreditFilter implements IFilter {
-
+	private static final double coreScore = 	1.00;
+	private static final double electiveScore = 0.80;
+	private static final double generalScore = 	0.60;
+	
     @Override
     public double processScore(Course course, double score) {
         double creditsReq = 0.0;
@@ -22,7 +25,7 @@ public class CreditFilter implements IFilter {
         {
         case COMP_CORE:
         case ENCS_CORE:
-            return score;
+            return coreScore*score;
         case COMP_ELEC:
             creditsReq = MainFrame.getModel().getRecord().requirements.compElec;
             break;
@@ -39,16 +42,20 @@ public class CreditFilter implements IFilter {
             creditsReq = MainFrame.getModel().getRecord().requirements.specialElec;
             break;
         }
-        // Electives are prioritised if they go towards an elective group
+        // Electives are prioritized if they go towards an elective group
         if ( (creditsReq - creditsTaken(group)) > course.getCredits() )
-            return 0.8 * score;
+            return electiveScore * score;
         
         // MATH electives, COMP courses can go towards general electives
         if (group == Course.Group.GEN_ELEC || group == Course.Group.MATH_ELEC || course.type().equals("COMP"))
         {
             creditsReq = MainFrame.getModel().getRecord().requirements.genElec;
-            if ( (creditsReq - creditsTaken(Course.Group.GEN_ELEC)) > course.getCredits() )
-                return 0.6 * score;
+            if ( (creditsReq - creditsTaken(Course.Group.GEN_ELEC)) >= course.getCredits() )
+                return generalScore * score;
+            System.out.println(course.getNumber());
+            System.out.println(creditsReq);
+            System.out.println(creditsTaken(Course.Group.GEN_ELEC));
+            System.out.println(course.getCredits());
         }
         // Course is not required and cannot go towards general electives
         return 0.0;
@@ -59,9 +66,23 @@ public class CreditFilter implements IFilter {
         double credits = 0.0; 
         for (Course course : MainFrame.getModel().getAllCourses())
         {
-            if ( MainFrame.getModel().dominantGroup(course.getGroups()) == group )
+            if ( course.wasTaken() && MainFrame.getModel().dominantGroup(course.getGroups()) == group )
                 credits += course.getCredits();
         }
         return credits;
     }
+    
+	@Override
+	public String getName() 
+	{
+		return "Credit Filter";
+	}
+
+	@Override
+	public String getDetails(Course course) 
+	{
+		if (processScore(course, 1.00) > 0.0)
+			return "This course is needed to satisfy a " + Course.groupToString(MainFrame.getModel().dominantGroup(course.getGroups())) + " requirement.";
+		return null;
+	}
 }

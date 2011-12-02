@@ -59,6 +59,11 @@ public class MainModel
 		return errors;
 	}
 	
+    public ArrayList<IFilter> getFilters()
+    {
+    	return filters;
+    }
+    
     // Methods
     public void addFilter(IFilter filter)
     {
