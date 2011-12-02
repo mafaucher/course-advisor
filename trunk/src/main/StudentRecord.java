@@ -40,7 +40,7 @@ public class StudentRecord
     public CourseRequirements requirements;
 	private double gpa, lastAnnualGpa;
 	private List<Course> courses, coursesTaken;
-
+	private double suggestedCredits;
 	public StudentRecord(String name, long id, Option option, double gpa, double lastAnnualGpa)
 	{
 		this.name = new String(name);
@@ -52,16 +52,21 @@ public class StudentRecord
 		coursesTaken = new ArrayList<Course>();
         setRequirements();
 	}
-
 	public StudentRecord(String name, long id, double gpa, double lastAnnualGpa)
     {
         this(name, id, Option.NONE, gpa, lastAnnualGpa);
     }
 
     // Setters
-    
+    public void setSuggestedCredits(double cr)
+    {
+    	suggestedCredits=cr;
+    }
     // Getters
-
+    public double getSuggestedCredits()
+    {
+    	return suggestedCredits;
+    }
 	public String getName()
 	{
 		return new String(name);
@@ -97,7 +102,7 @@ public class StudentRecord
 		return new ArrayList<Course>(coursesTaken);
 	}
 	
-    public double getSuggestedCredits()
+    public double computeSuggestedCredits()
 	{
     	if (gpa > 3.0)
     		return 15.0;
@@ -197,12 +202,5 @@ public class StudentRecord
                 requirements.specialElec =  0.00;
                 requirements.compElec    = 31.00;
         }
-    }
-   
-    // Driver
- 
-    public static void main(String[] args)
-    {
-        StudentRecord sr = new StudentRecord("name", 9614729L, Option.NONE, 4.2, 2.3);
     }
 }

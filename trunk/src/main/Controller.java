@@ -10,7 +10,7 @@ public class Controller
 	}
 	public static double suggestNumberOfCredits()
 	{
-		return getRecord().getSuggestedCredits();
+		return getRecord().computeSuggestedCredits();
 	}
 	public static void reportError(String err)
 	{
@@ -23,5 +23,10 @@ public class Controller
 	public static String embedHtml(String str)
 	{
 		return "<html><body>"+str+"</body></html>";
+	}
+	public static String getCourseDetails(Course course)
+	{
+		//TODO: enter details about the filter processing of this course
+		return course.getNumber();
 	}
 }
