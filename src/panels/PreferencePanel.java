@@ -62,7 +62,7 @@ public class PreferencePanel extends ViewPanel
 	}
 	public DetailPanel getDetailPanel() 
 	{
-		return createDetailPanel("I have no clue about what is supposed to be here...");
+		return createDetailPanel("Input keywords that correspond to your course preferences.");
 	}
 
 }

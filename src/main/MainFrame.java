@@ -19,8 +19,9 @@ public class MainFrame extends JFrame
 		frame=this;
 		model=new MainModel();
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setSize(1000,700);
-		setLayout(new FlowLayout(FlowLayout.CENTER));
+		setSize(700,800);
+		//setLayout(new FlowLayout(FlowLayout.CENTER));
+		setLayout(new BorderLayout());
 		setPanel(new LoginPanel());
 		setVisible(true);
 	}
@@ -52,8 +53,8 @@ public class MainFrame extends JFrame
     {
     	Container content=getContentPane();
 		content.removeAll();
-		content.add(mainPanel);
-		content.add(detailPanel);
+		content.add(mainPanel, BorderLayout.NORTH);
+		content.add(detailPanel, BorderLayout.SOUTH);
 		content.validate();
 		this.repaint();
     }
@@ -71,7 +72,8 @@ public class MainFrame extends JFrame
 	{
 		new MainFrame("Student Advisor Expert System");
         model.addFilter(new PrereqFilter());
-        //model.addFilter(new SemesterFilter());
+        model.addFilter(new SemesterFilter());
+        model.addFilter(new GradeFilter());
         model.addFilter(new LevelFilter());
         model.addFilter(new CreditFilter());
 	    for(Course course : model.getAllCourses())
