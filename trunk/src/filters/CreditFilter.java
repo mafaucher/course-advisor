@@ -42,8 +42,9 @@ public class CreditFilter implements IFilter {
             creditsReq = MainFrame.getModel().getRecord().requirements.specialElec;
             break;
         }
+
         // Electives are prioritized if they go towards an elective group
-        if ( (creditsReq - creditsTaken(group)) > course.getCredits() )
+        if ( (creditsReq - creditsTaken(group)) >= course.getCredits() )
             return electiveScore * score;
         
         // MATH electives, COMP courses can go towards general electives
