@@ -3,6 +3,7 @@ package panels;
 import java.awt.event.*;
 import javax.swing.*;
 
+import main.Controller;
 import main.MainFrame;
 
 public class LoginPanel extends ViewPanel 
@@ -22,8 +23,19 @@ public class LoginPanel extends ViewPanel
 			public void actionPerformed(ActionEvent arg0) 
 			{
 				String id=idField.getText();
-				MainFrame.getModel().loadStudentRecord(Long.valueOf(id));
-				MainFrame.getFrame().setPanel(new RecordPanel());
+				try
+				{
+					MainFrame.getModel().loadStudentRecord(Long.valueOf(id));
+					if(Controller.getRecord()!=null)
+						 Controller.reportError("There is no user with the id number "+id);
+				}
+				catch(Exception e)
+				{
+					Controller.reportError("Please input a 7 digit number with no alpha characters");
+				}
+				if(Controller.getRecord()!=null)
+					MainFrame.getFrame().setPanel(new RecordPanel());
+				else MainFrame.getFrame().setPanel(new LoginPanel());
 			}
 		};
 		idField = new JTextField("", 16);
