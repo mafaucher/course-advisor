@@ -59,6 +59,7 @@ public abstract class ViewPanel extends JPanel
 			for(String err : errors)
 				text+=err+"<br>";
 		}
+		errors.clear();
 		return new DetailPanel(text);
 	}
 	public abstract DetailPanel getDetailPanel();

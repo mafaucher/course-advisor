@@ -16,7 +16,7 @@ public class RecordPanel extends ViewPanel
 	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel nameLabel, coursesTakenLabel, creditsTakenLabel, gradesTakenLabel, coursesLabel, takenLabel, gpaLabel;
-	private JButton proceedButton;
+	private JButton proceedButton, backButton;
 	public RecordPanel()
 	{
 		//declare vars
@@ -69,7 +69,14 @@ public class RecordPanel extends ViewPanel
 		if(Controller.getRecord().getGpa()<2.0)
 			al=null;
 		proceedButton=createButton("Proceed", al);
-		
+		al=new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				MainFrame.getFrame().setPanel(new LoginPanel());
+			}
+		};
+		backButton=createButton("Logout", al);
 		GroupLayout layout=new GroupLayout(this);
 		setLayout(layout);
 		layout.setAutoCreateGaps(true);
@@ -86,7 +93,9 @@ public class RecordPanel extends ViewPanel
 						      		.addComponent(gradesTakenLabel))
 						      	.addComponent(coursesLabel)
 						      	.addComponent(gpaLabel)
-						      	.addComponent(proceedButton))
+						      	.addGroup(layout.createSequentialGroup()
+						      			.addComponent(proceedButton)
+						      			.addComponent(backButton)))
 				);
 				layout.setVerticalGroup(
 				   layout.createSequentialGroup()
@@ -98,7 +107,9 @@ public class RecordPanel extends ViewPanel
 				      		.addComponent(gradesTakenLabel))
 				      	.addComponent(coursesLabel)
 				      	.addComponent(gpaLabel)
-				      	.addComponent(proceedButton)
+				      	.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+				      			.addComponent(proceedButton)
+				      			.addComponent(backButton))
 				);
 	}
 	@Override

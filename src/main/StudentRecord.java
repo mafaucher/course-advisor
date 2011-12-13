@@ -86,7 +86,10 @@ public class StudentRecord
 	{
 		return gpa;
 	}
-
+	public void setGpa(double gpa)
+	{
+		this.gpa=gpa;
+	}
 	public double getLastAnnualGpa()
 	{
 		return lastAnnualGpa;
@@ -117,7 +120,13 @@ public class StudentRecord
 	{
 		courses.add(course);
 	}
-
+    public double getCurrentCredits()
+    {
+    	double credits=0;
+    	for(Course course : courses)
+    		credits+=course.getCredits();
+    	return credits;
+    }
 	public void addCourseTaken(Course course, double grade)
 	{
 		coursesTaken.add(course);

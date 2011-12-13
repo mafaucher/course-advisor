@@ -13,8 +13,8 @@ import main.MainFrame;
  */
 public class CreditFilter implements IFilter {
 	private static final double coreScore = 	1.00;
-	private static final double electiveScore = 0.80;
-	private static final double generalScore = 	0.60;
+	private static final double electiveScore = 0.70;
+	private static final double generalScore = 	0.30;
 	
     @Override
     public double processScore(Course course, double score) {

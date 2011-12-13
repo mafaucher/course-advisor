@@ -251,6 +251,16 @@ public class MainModel
                 }
             }
             br.close();
+            double gpa=0;
+            double nCredits=0;
+            List<Course> courses=record.getCoursesTaken();
+            for(Course course : courses)
+            {
+            	gpa+=course.getGrade()*course.getCredits();
+            	nCredits+=course.getCredits();
+            }
+            gpa/=nCredits;
+            record.setGpa(gpa);
             return record;
         }
         catch (Exception e)
@@ -280,11 +290,11 @@ public class MainModel
     }
     
     // Driver
-    public static void main(String[] args)
+    /*public static void main(String[] args)
     {
         MainModel mm = new MainModel();
         mm.loadStudentRecord(9614729L);
         System.out.println(mm.getCourse("COMP 228").getPrereqs().get(0).getNumber());
         System.out.println(mm.getRecord().getName());
-    }
+    }*/
 }

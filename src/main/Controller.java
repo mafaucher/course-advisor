@@ -11,7 +11,7 @@ public class Controller
 	}
 	public static double suggestNumberOfCredits()
 	{
-		return getRecord().computeSuggestedCredits();
+		return Math.max(getRecord().computeSuggestedCredits()-getRecord().getCurrentCredits(), 0);
 	}
 	public static void reportError(String err)
 	{
@@ -20,6 +20,14 @@ public class Controller
 	public static ArrayList<String> getErrors()
 	{
 		return MainFrame.getModel().getErrors();
+	}
+	public static ArrayList<String> getKeywords()
+	{
+		ArrayList<String> keywords=new ArrayList<String>();
+		keywords.add("intelligent");
+		keywords.add("systems");
+		//TODO: add real keywords
+		return keywords;
 	}
 	public static String embedHtml(String str)
 	{
