@@ -26,7 +26,7 @@ public class LoginPanel extends ViewPanel
 				try
 				{
 					MainFrame.getModel().loadStudentRecord(Long.valueOf(id));
-					if(Controller.getRecord()!=null)
+					if(Controller.getRecord()==null)
 						 Controller.reportError("There is no user with the id number "+id);
 				}
 				catch(Exception e)

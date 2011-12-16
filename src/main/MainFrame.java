@@ -76,6 +76,7 @@ public class MainFrame extends JFrame
         model.addFilter(new GradeFilter());
         model.addFilter(new LevelFilter());
         model.addFilter(new CreditFilter());
+        model.addFilter(new PreferenceFilter());
 	    for(Course course : model.getAllCourses())
         {
 	        if (course.getScore() > 0)

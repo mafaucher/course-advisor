@@ -7,8 +7,8 @@ import main.MainFrame;
  * Determines what course group the course fits in, and
  * finds whether the student needs more credits for this group.
  * Needed core class:    1.00*score
- * Needed elective class: .80*score
- * Other elective class:  .60*score
+ * Needed elective class: .70*score
+ * Other elective class:  .30*score
  * No category:          0.0
  */
 public class CreditFilter implements IFilter {
@@ -43,7 +43,7 @@ public class CreditFilter implements IFilter {
             break;
         }
 
-        // Electives are prioritized if they go towards an elective group
+        // Electives are prioritised if they go towards an elective group
         if ( (creditsReq - creditsTaken(group)) >= course.getCredits() )
             return electiveScore * score;
         

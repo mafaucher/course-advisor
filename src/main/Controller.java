@@ -23,11 +23,11 @@ public class Controller
 	}
 	public static ArrayList<String> getKeywords()
 	{
-		ArrayList<String> keywords=new ArrayList<String>();
-		keywords.add("intelligent");
-		keywords.add("systems");
-		//TODO: add real keywords
-		return keywords;
+		return MainFrame.getModel().getKeywords();
+	}
+	public static void setSelectedKeywords(ArrayList<String> keywords)
+	{
+	    MainFrame.getModel().setSelectedKeywords(keywords);
 	}
 	public static String embedHtml(String str)
 	{
