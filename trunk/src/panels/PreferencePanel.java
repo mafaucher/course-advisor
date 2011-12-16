@@ -38,8 +38,8 @@ public class PreferencePanel extends ViewPanel
 		{
 			public void actionPerformed(ActionEvent arg0) 
 			{
-				MainFrame.getFrame().setPanel(new ResultPanel());
-				fetchKeywords();
+                fetchKeywords();
+			    MainFrame.getFrame().setPanel(new ResultPanel());
 			}
 		};
 		nextButton=createButton("Next", al);
