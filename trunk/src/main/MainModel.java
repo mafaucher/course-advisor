@@ -25,12 +25,16 @@ public class MainModel
 	private Hashtable<String, Course> courses;
 	private ArrayList<String> errors;
 	private ArrayList<IFilter> filters;
+	private ArrayList<String> keywords;
+	private ArrayList<String> selectedKeywords;
 
 	public MainModel()
 	{
 		errors = new ArrayList<String>();
 		courses = new Hashtable<String, Course>();
-		filters=new ArrayList<IFilter>();
+		filters = new ArrayList<IFilter>();
+		keywords = new ArrayList<String>();
+		selectedKeywords = new ArrayList<String>();
 		loadCourses();
 	}
 	
@@ -62,6 +66,15 @@ public class MainModel
     public ArrayList<IFilter> getFilters()
     {
     	return filters;
+    }
+    
+    public ArrayList<String> getKeywords()
+    {
+        return keywords;
+    }
+    public ArrayList<String> getSelectedKeywords()
+    {
+        return selectedKeywords;
     }
     
     // Methods
@@ -129,6 +142,31 @@ public class MainModel
             course.setScore(score);
         }
     }
+    
+    public void setSelectedKeywords(ArrayList<String> kw)
+    {
+        selectedKeywords = new ArrayList<String>(kw);
+    }
+    
+    private void updateKeywords(Course course)
+    {
+        for (String courseKeyword : course.getKeywords())
+        {
+            boolean newKeyword = true;
+            for (String keyword : keywords)
+            {
+                if (keyword.equals(courseKeyword))
+                {
+                    newKeyword = false;
+                    break;
+                }
+            }
+            if (newKeyword)
+            {
+                keywords.add(courseKeyword);
+            }
+        }
+    }
 
     // Serialisation
     private List<Course> loadCoursesFromCSV()
@@ -166,6 +204,7 @@ public class MainModel
                 }
                 course.setSemesters(intSemesters);
                 courses.add(course);
+                updateKeywords(course);
             }
             br.close();
             return courses;

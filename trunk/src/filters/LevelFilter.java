@@ -22,7 +22,6 @@ public class LevelFilter implements IFilter {
 	    case 0:
 	    default:
 	        return 0.0;
-	        // TODO: proper error system
 	    }
 	}
 	

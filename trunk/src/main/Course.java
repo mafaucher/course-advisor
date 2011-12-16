@@ -264,7 +264,7 @@ public class Course
     public String toString()
     {
     	String result = "<b>"+number+" - "+name+"</b><br>";
-    	result += "Credis: "+credits+"<br>Semeters:";
+    	result += "Credits: "+credits+"<br>Semeters:";
     	for (int i = 0; i < semesters.length; i++)
     	{
     		if (semesters[i])

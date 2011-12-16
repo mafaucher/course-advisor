@@ -14,9 +14,6 @@ import main.MainFrame;
 public class PreferencePanel extends ViewPanel 
 {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel prefLabel;
 	//private JTextField prefText;
@@ -89,11 +86,12 @@ public class PreferencePanel extends ViewPanel
 				JCheckBox ch=(JCheckBox)c;
 				if(ch.isSelected())
 				{
+				    System.out.println(ch.getText());
 					keywords.add(ch.getText());
 				}
 			}
 		}
-		//TODO: store the keywords somewhere
+		Controller.setSelectedKeywords(keywords);
 		return;
 		
 	}
